@@ -1,0 +1,21 @@
+{
+    "presets":[
+        ["env"], ["react"], ["stage-0"]
+    ],
+    "plugins": [
+      "transform-decorators-legacy"
+    ],
+    "env":{
+        "development": {
+            "plugins": [
+              "react-hot-loader/babel",
+              "babel-plugin-styled-components",  {
+                "ssr": true
+              }
+            ]
+          },
+        "production": {
+            "presets": ["react-optimize"]
+          }
+    }
+}

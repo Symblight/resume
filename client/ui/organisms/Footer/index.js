@@ -28,6 +28,12 @@ const UlWrap = styled.ul`
 
     @media screen and (max-width: 768px) {
         flex-direction: column;
+        align-items: center;
+        
+    }
+
+    li {
+        padding: 2px;
     }
 `;
 

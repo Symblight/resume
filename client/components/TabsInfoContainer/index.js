@@ -37,7 +37,6 @@ const Slide = styled.div`
 
 class InfoContainer extends PureComponent {
     render() {
-        console.log(1)
         return (
             <Fragment>
                 <Slide animate={this.props.selectedIndex == 1}>11</Slide>

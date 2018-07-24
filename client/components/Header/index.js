@@ -1,20 +1,24 @@
 import React, { PureComponent } from 'react'
+import { renderToStaticMarkup } from 'react-dom/server';
 import PropTypes from 'prop-types'
 import styled from 'styled-components';
 import { size, palette } from 'styled-theme';
 import { connect } from 'react-redux';
 
-import Background from 'assets/background.jpg';
+import SvgBackground from 'assets/images/coffee.svg';
 
 import { Hero, TabsNav } from 'ui';
 import { changeSelectedPage } from './actions';
 
+const svgString = encodeURIComponent(renderToStaticMarkup(<SvgBackground />));
+
 const Wrapper = styled.section`
     display: flex;
     flex-direction: column;
-    min-height: 40vh;
     padding-top: 1rem;
+    min-height: 50vh;
     justify-content: center;
+
 
     @media screen and (min-width: 768px) {
         background-size: cover;
@@ -41,12 +45,6 @@ const ContainerTabs = styled.div`
     position: relative;
     justify-content: center;
     margin-top: 1rem;
-
-    ul {
-        position: absolute;
-        z-index: 999;
-        bottom: 0;
-    }
 `;
 
 class Header extends PureComponent {
@@ -61,7 +59,7 @@ class Header extends PureComponent {
                     <Hero />
                     <ContainerTabs>
                          <TabsNav onClick={this.handleSelectedPage} data={this.props.tabs} palette='white'/> 
-                         <WrapTabs/>
+                        
                     </ContainerTabs>
             </Wrapper>
         );

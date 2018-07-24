@@ -28,9 +28,16 @@ const Description = styled.div`
     align-items: center;
     color: #fff;
     font-style: normal;
-    font-size: 21px;
     line-height: 1.28;
     letter-spacing: -.003em;
+
+    @media screen and (min-width: 768px) {
+        font-size: 21px;
+    }
+
+    @media screen and (max-width: 768px) {
+        font-size: 16px;
+    }
 `;
 
 export const Hero = (props) => {

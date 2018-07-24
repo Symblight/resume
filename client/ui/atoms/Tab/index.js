@@ -11,11 +11,11 @@ const Wrapper = styled.li`
     @media screen and (min-width: 768px) {
         transition: border-bottom .1s, color .1s;
         border-bottom-style: solid;
-        border-bottom-color: ${(props) => props.active ?  palette('primary', 1, true)  : ``};
+        border-bottom-color: ${(props) => props.active ?  palette(props.palette, 1, true)  : ``};
         border-bottom-width: ${(props) => props.active ? '2.5px': '0px'};
         
         &:hover {
-            border-bottom: 2.5px solid ${palette('primary', 1, true)};
+            border-bottom: 2.5px solid ${props => palette(props.palette, 1, true)};
         }
     }
 

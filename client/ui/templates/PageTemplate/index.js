@@ -2,12 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { palette, size } from 'styled-theme';
+import { renderToStaticMarkup } from 'react-dom/server';
+
+import SvgBackground from 'assets/images/coffee.svg';
+
+const svgString = encodeURIComponent(renderToStaticMarkup(<SvgBackground />));
 
 const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: ${palette('grayscale', 1, true)};
+    background-color: ${palette('primary', 1, true)};
+    background-image: url("data:image/svg+xml, ${svgString}");
+
     a {
         color: ${palette('primary', 2, true)};
     }
@@ -19,18 +26,21 @@ const Wrapper = styled.div`
 
 const Container = styled.section`
     flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
 `;
 
 const Header = styled.header`
     border-bottom: solid 1px #e4e4eb;
-    background-color: ${palette('primary', 1, true)};
 `;
 
 const Content = styled.main`
     display: flex;
     flex-direction: column;
-    max-width: ${size('maxWidth')};
-    margin: 0 auto;
+    background-color: ${palette('grayscale', 1, true)};
+    flex-grow: 1;
+    margin: auto;
+    width: 100%;
 `;
 
 const Footer = styled.footer`

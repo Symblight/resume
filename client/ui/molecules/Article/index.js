@@ -18,7 +18,7 @@ const Wrap = styled(Block)`
  
     @media screen and (min-width: 768px) {
         width: 150px;
-        height: 210px;
+        height: 150px;
         margin: 12px
         flex-direction: column;  
     }
@@ -43,8 +43,8 @@ const IconWrap = styled.div`
 
 const SvgFigure = styled(Icon)`
     @media screen and (min-width: 768px) {
-        width: 115px;
-        height: 115px;
+        width: 85px;
+        height: 85px;
     }
 
     @media screen and (max-width: 768px) {

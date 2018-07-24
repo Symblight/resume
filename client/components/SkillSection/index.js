@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 
 import GridArticles from '../GridArticles';
-import data from '../../data/data.json';
 import TabContainer from '../TabContainer';
+import withSkills from '../../props-proxy/withSkills';
 
 import { Section, TabsNav } from 'ui';
 
@@ -34,17 +34,19 @@ class SkillsSection extends PureComponent {
     }
 
     render() {
+        const { data } = this.props;
+    
         return (
                 <Section title='Skills'>
                     <TabsNav data={TEST_TABS} onClick={this.handleOnClick}/>
                     <TabContainer selected={this.state.selected}>
-                        <GridArticles data = {data.skills.technologies}/>
-                        <GridArticles data = {data.skills.languages}/>
-                        <GridArticles data = {data.skills.tools}/>
+                        <GridArticles data = {data.technologies}/>
+                        <GridArticles data = {data.languages}/>
+                        <GridArticles data = {data.tools}/>
                     </TabContainer>
                 </Section>
         );
     }
 }
 
-export default SkillsSection;
+export default withSkills(SkillsSection);

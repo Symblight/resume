@@ -6,7 +6,8 @@ import { size, palette } from 'styled-theme';
 import { Section } from 'ui';
 
 const Wrapper = styled.div`
-    
+    max-width: ${size('maxWidth')};
+    margin: 0 auto;
 `;
 
  class Contacts extends Component {

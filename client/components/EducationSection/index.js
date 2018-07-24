@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
-import data from '../../data/data.json';
+import withEducation from '../../props-proxy/withEducation'
 
 import { Section, ArticleInfo } from 'ui';
 
@@ -11,10 +11,12 @@ class EducationSection extends PureComponent {
     }
 
     render() {
+        const { data } = this.props;
+
         return (
             <Section title='Education'>
             {
-                data.education.map((el, i) => 
+                data.map((el, i) => 
                     <ArticleInfo title={el.title} date={el.date} summary={el.discription} key={i}/>
                 )
             }
@@ -23,4 +25,4 @@ class EducationSection extends PureComponent {
     }
 }
 
-export default EducationSection;
+export default withEducation(EducationSection);

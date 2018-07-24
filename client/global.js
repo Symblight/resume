@@ -9,4 +9,8 @@ export const global = () => injectGlobal`
   body {
     margin:0;
   }
+
+  html, body {
+    height: 100%;
+}
 `

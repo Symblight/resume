@@ -8,10 +8,11 @@ export const Icon = props => (
         width={props.width ? props.width  :"22"}
         height={props.height ? props.height  :"22"}
         viewBox={icons[props.icon].viewBox}
+        {...props}
     >
         {   
             icons[props.icon].path.map((el, i)=>
-                <path d={el.path} fill={el.fill} key={i}></path>
+                <path d={el.path} fill={props.fill ? props.fill : el.fill} key={i}></path>
             )
         }
     </svg>

@@ -9,7 +9,7 @@ import { Section, TabsNav } from 'ui';
 const TEST_TABS = [
     {
         id: 0,
-        label: 'technologies'
+        label: 'Technologies'
     },
     {
         id: 1,
@@ -23,15 +23,25 @@ const TEST_TABS = [
 
 class SkillsSection extends PureComponent {
 
+    state = {
+        selected: 0
+    }
+
+    handleOnClick = (index) => {
+        this.setState({
+            selected: index
+        });
+    }
+
     render() {
         return (
                 <Section title='Skills'>
-                    technologies
-                    <GridArticles data = {data.skills.technologies}/>
-                    languages
-                    <GridArticles data = {data.skills.languages}/>
-                    tools
-                    <GridArticles data = {data.skills.tools}/>
+                    <TabsNav data={TEST_TABS} onClick={this.handleOnClick}/>
+                    <TabContainer selected={this.state.selected}>
+                        <GridArticles data = {data.skills.technologies}/>
+                        <GridArticles data = {data.skills.languages}/>
+                        <GridArticles data = {data.skills.tools}/>
+                    </TabContainer>
                 </Section>
         );
     }

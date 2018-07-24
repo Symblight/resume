@@ -14,12 +14,13 @@ const Wrapper = styled.section`
 `;
 
 const Title = styled.span`
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 700;
 `;
 
 const WrapTitle = styled.div`
     padding-bottom: 12px;
+    text-align: center;
 `;
 
 export const Section = ({

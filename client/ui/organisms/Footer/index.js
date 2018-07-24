@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { size, palette } from 'styled-theme';
 
+import { Icon } from 'ui';
+
 const Wrapper  = styled.div`
     margin: 0 auto;
     width: 100%;
@@ -43,7 +45,8 @@ export const Footer = (props) => {
         <Wrapper>
             <UlWrap>
                 <li><LinkFooter>made by Alexey Tkachenko 2018</LinkFooter></li>
-                <li><LinkFooter>github</LinkFooter></li>
+                <li><LinkFooter href='https://github.com/symblight'>github</LinkFooter></li>
+                <li>version 1.0.0</li>
             </UlWrap>
         </Wrapper>
     );

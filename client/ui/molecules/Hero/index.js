@@ -26,8 +26,11 @@ const Description = styled.div`
     word-wrap: break-word;
     width: 240px;
     align-items: center;
-    font-size: 16px;
     color: #fff;
+    font-style: normal;
+    font-size: 21px;
+    line-height: 1.28;
+    letter-spacing: -.003em;
 `;
 
 export const Hero = (props) => {

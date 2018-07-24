@@ -9,7 +9,6 @@ const Wrapper = styled.article`
     justify-content: center;
     flex-wrap: wrap;
 
-    
     @media screen and (min-width: 768px) {
         flex-direction: row;
     }

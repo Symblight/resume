@@ -8,27 +8,49 @@ import { palette } from 'styled-theme';
 import { Block, Label, Icon } from 'ui';
 
 const Wrap = styled(Block)`
-    display: flex;
-    flex-direction: row;    
+    display: flex;  
     padding: 10px;
     word-wrap: break-word;
     border-radius: 6px;
     align-items: center;
     font-weight: 700;
+    font-size: 18px;
  
     @media screen and (min-width: 768px) {
-        width: 240px;
+        width: 150px;
+        height: 210px;
         margin: 12px
+        flex-direction: column;  
     }
 
     @media screen and (max-width: 768px) {
+        flex-direction: row;  
         width: 100%;
+        height: 80px;
         border-bottom: 1px solid #eee;
     }
 `;
 
 const IconWrap = styled.div`
-    margin-right: 6px;
+    @media screen and (min-width: 768px) {
+        margin: auto; 
+    }
+
+    @media screen and (max-width: 768px) {
+        margin-right: 12px;
+    }
+`;
+
+const SvgFigure = styled(Icon)`
+    @media screen and (min-width: 768px) {
+        width: 115px;
+        height: 115px;
+    }
+
+    @media screen and (max-width: 768px) {
+        width: 35px;
+        height: 35px;
+    }
 `;
 
 export const Article = ({
@@ -38,7 +60,7 @@ export const Article = ({
         <Wrap>
             <IconWrap>
                 {
-                    img ? <Icon  width="35" height="35" icon={img} /> : null
+                    img ? <SvgFigure   icon={img} /> : null
                 }
             </IconWrap>
             {children}

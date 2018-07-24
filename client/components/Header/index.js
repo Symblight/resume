@@ -17,18 +17,15 @@ const Wrapper = styled.section`
     justify-content: center;
 
     @media screen and (min-width: 768px) {
-       // background: url(${Background}) no-repeat center bottom fixed;
         background-size: cover;
     }
-
-
 `;
 
 const WrapTabs = styled.div`
-    display: flex;
     width: 100%;
-    justify-content: center;
-    margin-top: 1rem;
+    opacity: 0.25;
+    height: 50px;
+    z-index: 1;
 
     @media screen and (min-width: 768px) {
         background-color: ${palette('white', 3, true)};
@@ -36,6 +33,19 @@ const WrapTabs = styled.div`
 
     @media screen and (max-width: 768px) {
 
+    }
+`;
+
+const ContainerTabs = styled.div`
+    display: flex;
+    position: relative;
+    justify-content: center;
+    margin-top: 1rem;
+
+    ul {
+        position: absolute;
+        z-index: 999;
+        bottom: 0;
     }
 `;
 
@@ -49,7 +59,10 @@ class Header extends PureComponent {
         return (
             <Wrapper>
                     <Hero />
-                <WrapTabs><TabsNav onClick={this.handleSelectedPage} data={this.props.tabs}/></WrapTabs>
+                    <ContainerTabs>
+                         <TabsNav onClick={this.handleSelectedPage} data={this.props.tabs} palette='white'/> 
+                         <WrapTabs/>
+                    </ContainerTabs>
             </Wrapper>
         );
     }

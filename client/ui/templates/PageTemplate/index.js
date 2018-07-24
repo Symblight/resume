@@ -8,8 +8,11 @@ const Wrapper = styled.div`
     flex-direction: column;
     min-height: 100vh;
     background-color: ${palette('grayscale', 1, true)};
-
     a {
+        color: ${palette('primary', 2, true)};
+    }
+
+    li {
         color: ${palette('primary', 2, true)};
     }
 `;
@@ -20,7 +23,7 @@ const Container = styled.section`
 
 const Header = styled.header`
     border-bottom: solid 1px #e4e4eb;
-    background-color: ${palette('dark', 1, true)};
+    background-color: ${palette('primary', 1, true)};
 `;
 
 const Content = styled.main`

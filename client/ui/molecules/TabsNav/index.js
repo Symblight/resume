@@ -41,7 +41,7 @@ export class TabsNav extends PureComponent {
     }
 
     render() {
-        const { data } = this.props;
+        const { data, palette } = this.props;
 
         return (
             <Wrapper>
@@ -55,6 +55,7 @@ export class TabsNav extends PureComponent {
                                 onClick={this.onClick}
                                 active={this.state.selected == id}
                                 label={item.label}
+                                palette={palette}
                                 />
                         )
                     }

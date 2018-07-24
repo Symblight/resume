@@ -11,7 +11,7 @@ const Wrapper = styled.div`
     border-color: ${palette('white', 2, true)};
 
     &:hover{
-        background-color: ${palette('primary', 1, true)};
+        background-color: ${palette('primary', 0, true)};
     }
 `;
 

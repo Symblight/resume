@@ -25,16 +25,18 @@ const Content = styled.div`
 `;
 
 export const BlockWay = ({
-    title, children, className
-}, props) => {
-    return (
-        <Wrapper className={className}>
-            <Title>{title}</Title>
-            <Content>{children}</Content>
-        </Wrapper>
-    );
-}
+  title, children, className
+}, props) => (
+  <Wrapper className={className}>
+    <Title>
+      {title}
+    </Title>
+    <Content>
+      {children}
+    </Content>
+  </Wrapper>
+);
 
 BlockWay.propTypes = {
-    children: PropTypes.any
-}
+  children: PropTypes.any
+};

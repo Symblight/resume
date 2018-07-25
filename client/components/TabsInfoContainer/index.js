@@ -14,7 +14,7 @@ const Slide = styled.div`
     z-index: 100;
     left: 0;
     transform: translateX(100%);
-   // animation: moveFromRight ${props => props.animate ? '.8s': '.0s'}  ease-in-out both;
+   // animation: moveFromRight ${({ animate }) => (animate ? '.8s' : '.0s')}  ease-in-out both;
 
     &:hover {
         animation: moveFromRight .8s ease-in-out both;
@@ -22,37 +22,34 @@ const Slide = styled.div`
         moveFromRight {
             0% {
                 transform: translateX(100%);
-                        transform: translateX(100%);
             }
             50% {
                 transform: translateX(0%);
-                        transform: translateX(0%);
             }
             100% {
                 transform: translateX(-100%);
-                        transform: translateX(-100%);
             }
         }
 `;
 
 class InfoContainer extends PureComponent {
-    render() {
-        return (
-            <Fragment>
-                <Slide animate={this.props.selectedIndex == 1}>11</Slide>
-                <TabContainer selected={this.props.selectedIndex}>
-                    <About/>
-                    <Contacts />
-                </TabContainer>
-            </Fragment>
-        );
-    }
+  render() {
+    const { selectedIndex } = this.props;
+
+    return (
+      <Fragment>
+        <Slide>11</Slide>
+        <TabContainer selected={selectedIndex}>
+          <About />
+          <Contacts />
+        </TabContainer>
+      </Fragment>
+    );
+  }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        selectedIndex: state.reducerPage.selectedIndex
-    }
-}
+const mapStateToProps = (state) => ({
+  selectedIndex: state.reducerPage.selectedIndex
+});
 
 export default connect(mapStateToProps, null)(InfoContainer);

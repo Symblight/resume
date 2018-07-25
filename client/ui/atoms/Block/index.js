@@ -16,13 +16,13 @@ const Wrapper = styled.div`
 `;
 
 export const Block = ({
-    children, ...props
-}) => {
-    return (
-        <Wrapper {...props}>{children}</Wrapper>
-    )
-};
+  children, ...props
+}) => (
+  <Wrapper {...props}>
+    {children}
+  </Wrapper>
+);
 
 Block.propTypes = {
-    children: PropTypes.any
+  children: PropTypes.any
 };

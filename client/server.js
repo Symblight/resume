@@ -14,24 +14,24 @@ import configureStore from './store/configureStore';
 const store = configureStore();
 
 export default function serverRenderer() {
-    return (req, res) => {
-        const sheet = new ServerStyleSheet();
-        const context = {};
-        const markup = ReactDOMServer.renderToString(
-            <StaticRouter>
-                <AppContainer>
-                    <ThemeProvider theme={theme}>
-                        <Provider store={store}>
-                            <App />
-                        </Provider>
-                    </ThemeProvider>
-                </AppContainer>
-            </StaticRouter>
-        );
-        const styleTags = sheet.getStyleTags();
-            res.status(200).send(Template({
-            markup,
-            styles: styleTags
-        }));
-    };
+  return (req, res) => {
+    const sheet = new ServerStyleSheet();
+    const context = {};
+    const markup = ReactDOMServer.renderToString(
+      <StaticRouter>
+        <AppContainer>
+          <ThemeProvider theme={theme}>
+            <Provider store={store}>
+              <App />
+            </Provider>
+          </ThemeProvider>
+        </AppContainer>
+      </StaticRouter>
+    );
+    const styleTags = sheet.getStyleTags();
+    res.status(200).send(Template({
+      markup,
+      styles: styleTags
+    }));
+  };
 }

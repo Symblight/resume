@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Ava from 'assets/ava.jpg';
 import { Avatar } from 'ui';
 
-const Wrapper  = styled.div`
+const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,11 +40,13 @@ const Description = styled.div`
     }
 `;
 
-export const Hero = (props) => {
-    return (
-        <Wrapper className={props.className}>
-            <Avatar url={Ava}/>
-            <Description>Hey! My name is Alexey and I'm web developer. My stack: React, NodeJS </Description>
-        </Wrapper>
-    );
-}
+export const Hero = ({
+  children, className
+}) => (
+  <Wrapper className={className}>
+    <Avatar url={Ava} />
+    <Description>
+      {children}
+    </Description>
+  </Wrapper>
+);

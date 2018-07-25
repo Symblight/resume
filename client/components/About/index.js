@@ -21,12 +21,11 @@ class About extends Component {
   render() {
     return (
       <Wrapper>
-            <SkillsSection />
-            <EducationSection />
-            <ProjectsSection />
+        <SkillsSection />
+        <EducationSection />
       </Wrapper>
-    )
+    );
   }
-};
+}
 
 export default About;

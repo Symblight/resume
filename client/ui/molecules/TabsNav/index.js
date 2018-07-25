@@ -1,5 +1,5 @@
-import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import _ from 'lodash';
 
@@ -21,45 +21,47 @@ const Wrapper = styled.ul`
 `;
 
 export class TabsNav extends PureComponent {
-    state = {
-        selected: 0
-    }
     static propTypes = {
 
     }
 
+    state = {
+      selected: 0
+    }
+
     onClick = (event) => {
-        const { onClick } = this.props;
+      const { onClick } = this.props;
 
-        event.preventDefault();
+      event.preventDefault();
 
-        if (onClick) {
-            onClick(event.currentTarget.id);
-        }
+      if (onClick) {
+        onClick(event.currentTarget.id);
+      }
 
-        this.setState({selected: event.currentTarget.id});
+      this.setState({ selected: event.currentTarget.id });
     }
 
     render() {
-        const { data, palette } = this.props;
+      const { data, color } = this.props;
+      const { selected } = this.state;
 
-        return (
-            <Wrapper>
-                 {
-                        _.map(data, (item, id) =>
-                            <Tab 
-                                role="tab"
-                                key={id}
-                                aria-controls={`panel${id}`}
-                                id={id}
-                                onClick={this.onClick}
-                                active={this.state.selected == id}
-                                label={item.label}
-                                palette={palette}
-                                />
-                        )
-                    }
-            </Wrapper>
-        )
+      return (
+        <Wrapper>
+          {
+              _.map(data, (item, id) => (
+                <Tab
+                  role="tab"
+                  key={id}
+                  aria-controls={`panel${id}`}
+                  id={id}
+                  onClick={this.onClick}
+                  active={selected.toString() === id.toString()}
+                  label={item.label}
+                  color={color}
+                />
+              ))
+          }
+        </Wrapper>
+      );
     }
 }

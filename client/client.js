@@ -21,21 +21,21 @@ const store = configureStore(preloadedState);
 const App = require('./components/App').default;
 
 const render = (Component) => {
-    const renderMethod = module.hot ? ReactDOM.hydrate : ReactDOM.render;
+  const renderMethod = module.hot ? ReactDOM.hydrate : ReactDOM.render;
 
-    renderMethod(
-        <Router>
-            <AppContainer>
-                <ThemeProvider theme={theme}>
-                    <Provider store={store}>
-                        <Component />
-                    </Provider>
-                </ThemeProvider>
-            </AppContainer>
-        </Router>,
+  renderMethod(
+    <Router>
+      <AppContainer>
+        <ThemeProvider theme={theme}>
+          <Provider store={store}>
+            <Component />
+          </Provider>
+        </ThemeProvider>
+      </AppContainer>
+    </Router>,
     document.getElementById('root')
-    )
-}
+  );
+};
 
 global();
 render(App);

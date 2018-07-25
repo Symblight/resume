@@ -56,24 +56,22 @@ const Line = styled.span`
 `;
 
 export const PageTemplate = ({
-    header, footer, children,
-}) => {
-    return (
-        <Wrapper>
-            <Container>
-                <Header>{header}</Header>
-                <Content>{children}</Content>
-            </Container> 
-            <Footer>
-                <Line />
-                {footer}
-            </Footer>
-        </Wrapper>
-    )
-}
+  header, footer, children,
+}) => (
+  <Wrapper>
+    <Container>
+      <Header>{header}</Header>
+      <Content>{children}</Content>
+    </Container>
+    <Footer>
+      <Line />
+      {footer}
+    </Footer>
+  </Wrapper>
+);
 
 PageTemplate.propTypes = {
-    header: PropTypes.node.isRequired,
-    footer: PropTypes.node.isRequired,
-    children: PropTypes.any,
-  }
+  header: PropTypes.node.isRequired,
+  footer: PropTypes.node.isRequired,
+  children: PropTypes.any,
+};

@@ -20,22 +20,21 @@ const Wrapper = styled.article`
 
 class GridArticles extends PureComponent {
     static propTypes = {
-        data: PropTypes.arrayOf(String)
+      data: PropTypes.arrayOf(String)
     }
 
     render() {
-        const { data } = this.props;
+      const { data } = this.props;
 
-        return (
-            <Wrapper>
-                {
+      return (
+        <Wrapper>
+          {
                     data.map((el, i) => (
-                        <Article key={i} title={el.title} img={el.img}>{el.title}</Article>
-                     )
-                    )
+                      <Article key={i} title={el.title} img={el.img}>{el.title}</Article>
+                    ))
                 }
-            </Wrapper>
-        );
+        </Wrapper>
+      );
     }
 }
 

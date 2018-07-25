@@ -24,18 +24,22 @@ const WrapTitle = styled.div`
 `;
 
 export const Section = ({
-    children, title
-}) => {
-    return (
-        <Wrapper>
-            {title ? <WrapTitle><Title>{title}</Title></WrapTitle> : null }
-            <div>
-            {children}
-            </div>
-        </Wrapper>
-    );
-};
+  children, title
+}) => (
+  <Wrapper>
+    {title ? (
+      <WrapTitle>
+        <Title>
+          {title}
+        </Title>
+      </WrapTitle>
+    ) : null }
+    <div>
+      {children}
+    </div>
+  </Wrapper>
+);
 
 Section.propTypes = {
-    children: PropTypes.any
-}
+  children: PropTypes.any
+};

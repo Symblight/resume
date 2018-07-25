@@ -10,4 +10,4 @@ const Wrapper = styled.img`
     background-color: white;
 `;
 
-export const Avatar = props => <Wrapper alt="Avatar" {...props} src={props.url} />
+export const Avatar = ({ url }, props) => <Wrapper alt="Avatar" src={url} {...props} />;

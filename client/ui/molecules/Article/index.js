@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import SVG from '../../../components/ImageSVG';
 
 import { palette } from 'styled-theme';
 
 import { Block, Label, Icon } from 'ui';
+import SVG from '../../../components/ImageSVG';
 
 const Wrap = styled(Block)`
     display: flex;  
@@ -54,21 +54,19 @@ const SvgFigure = styled(Icon)`
 `;
 
 export const Article = ({
-    title, children, img
-}, props) => {
-    return (
-        <Wrap>
-            <IconWrap>
-                {
-                    img ? <SvgFigure   icon={img} /> : null
-                }
-            </IconWrap>
-            {children}
-        </Wrap>
-    );
-}
+  title, children, img
+}, props) => (
+  <Wrap>
+    <IconWrap>
+      {
+        img ? <SvgFigure icon={img} /> : null
+      }
+    </IconWrap>
+    {children}
+  </Wrap>
+);
 
 Article.propTypes = {
-    title: PropTypes.string,
-    children: PropTypes.any
+  title: PropTypes.string,
+  children: PropTypes.any
 };

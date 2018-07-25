@@ -4,7 +4,7 @@ import { size, palette } from 'styled-theme';
 
 import { Icon } from 'ui';
 
-const Wrapper  = styled.div`
+const Wrapper = styled.div`
     margin: 0 auto;
     width: 100%;
     max-width: ${size('maxWidth')};
@@ -46,14 +46,16 @@ const LinkFooter = styled.a`
     }
 `;
 
-export const Footer = (props) => {
-    return (
-        <Wrapper>
-            <UlWrap>
-                <li><LinkFooter>made by Alexey Tkachenko 2018</LinkFooter></li>
-                <li><LinkFooter href='https://github.com/symblight'>github</LinkFooter></li>
-                <li>version 1.0.0</li>
-            </UlWrap>
-        </Wrapper>
-    );
-}
+export const Footer = (props) => (
+  <Wrapper>
+    <UlWrap>
+      <li>
+        <LinkFooter>made by Alexey Tkachenko 2018</LinkFooter>
+      </li>
+      <li>
+        <LinkFooter href="https://github.com/symblight">github</LinkFooter>
+      </li>
+      <li>version 1.0.0</li>
+    </UlWrap>
+  </Wrapper>
+);

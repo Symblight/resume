@@ -3,21 +3,22 @@ import PropTypes from 'prop-types';
 
 import icons from './Icons';
 
-export const Icon = props => (
-    <svg 
-        width={props.width ? props.width  :"22"}
-        height={props.height ? props.height  :"22"}
-        viewBox={icons[props.icon].viewBox}
-        {...props}
-    >
-        {   
-            icons[props.icon].path.map((el, i)=>
-                <path d={el.path} fill={props.fill ? props.fill : el.fill} key={i}></path>
-            )
+export const Icon = ({
+  width, height, icon, fill, className
+}, props) => (
+  <svg
+    width={width || '22'}
+    height={height || '22'}
+    viewBox={icons[icon].viewBox}
+    className={className}
+    {...props}
+  >
+    {
+            icons[icon].path.map((el, i) => <path d={el.path} fill={fill || el.fill} key={i} />)
         }
-    </svg>
-  );
-  
-  Icon.propTypes = {
-    icon: PropTypes.string.isRequired,
-  };
+  </svg>
+);
+
+Icon.propTypes = {
+  icon: PropTypes.string.isRequired,
+};

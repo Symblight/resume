@@ -6,14 +6,14 @@ import Header from '../../Header';
 import InfoContainer from '../../TabsInfoContainer';
 
 export default class MainPage extends PureComponent {
-    render() {
-        return (
-            <PageTemplate
-                header={<Header />}
-                footer={<Footer />} 
-            >
-            <InfoContainer/>
-            </PageTemplate>
-        )
-    }
+  render() {
+    return (
+      <PageTemplate
+        header={<Header />}
+        footer={<Footer />}
+      >
+        <InfoContainer />
+      </PageTemplate>
+    );
+  }
 }

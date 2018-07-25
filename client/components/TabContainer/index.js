@@ -8,32 +8,34 @@ const Wrapper = styled.div`
 `;
 
 class TabConatiner extends PureComponent {
-    constructor(props){
-        super(props);
+    static propTypes = {
+      children: PropTypes.any
+    }
 
-        this.state = {
-            selected: this.props.selected || 0
-        }
+    constructor(props) {
+      super(props);
+
+      this.state = {
+        selected: props.selected || 0
+      };
     }
 
     componentWillReceiveProps(nextProps) {
-        this.setState({
-            selected: nextProps.selected
-        })
+      this.setState({
+        selected: nextProps.selected
+      });
     }
 
-    static propTypes = {
-        children: PropTypes.any
-    }
 
     render() {
-        const { children } = this.props;
+      const { children } = this.props;
+      const { selected } = this.state;
 
-        return (
-            <Wrapper>
-                { children ?  children[this.state.selected] : null }
-            </Wrapper>
-        )
+      return (
+        <Wrapper>
+          { children ? children[selected] : null }
+        </Wrapper>
+      );
     }
 }
 

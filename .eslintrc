@@ -1,0 +1,75 @@
+{
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "sourceType": "module",
+      "allowImportExportEverywhere": true
+    },
+    "extends": "airbnb",
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "rules":{
+      "import/no-extraneous-dependencies": "off",
+      "import/no-cycle": "off",
+      "import/no-unresolved":"off",
+      "arrow-parens": ["off"],
+      "compat/compat": "error",
+      "consistent-return": "off",
+      "comma-dangle": "off",
+      "react/sort-comp": ["error", {
+        "order": ["type-annotations", "static-methods", "lifecycle", "everything-else", "render"]
+      }],
+      "import/prefer-default-export":"off",
+      "no-undef":"off",
+      "no-underscore-dangle":"off",
+      "padded-blocks": ["warn", { "switches": "always" }],
+      "react/require-default-props": [0, {"forbidDefaultForRequired":false}],
+      "jsx-a11y/anchor-is-valid": [ "error", {
+              "components": [ "Link" ],
+              "specialLink": [ "hrefLeft", "hrefRight", "to" ],
+              "aspects": [ "noHref", "invalidHref", "preferButton" ]
+      }],
+      "react/prop-types": 0,
+      "react/jsx-no-bind": "off",
+      "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
+      "react/prefer-stateless-function": "off",
+      "react/jsx-one-expression-per-line":"off",
+      "react/jsx-indent": "warn",
+      "react/jsx-closing-tag-location": "off",
+      "no-unused-vars":"off",
+      "no-mixed-operators":"off",
+      "linebreak-style": 0,
+      "class-methods-use-this": "off",
+      "no-console":"off",
+      "no-trailing-spaces":"warn",
+      "eol-last":"off",
+      "indent":"warn",
+      "no-alert":"warn",
+      "key-spacing":"warn",
+      "prefer-const":"off",
+      "no-return-assign":"off",
+      "react/no-array-index-key":"warn",
+      "react/no-unused-state":"off",
+      "react/jsx-boolean-value":"off",
+      "react/forbid-prop-types":"off",
+      "react/no-unused-prop-types":"warn",
+      "react/jsx-indent-props":"warn",
+      "react/jsx-closing-bracket-location":"warn",
+      "no-unused-expressions":"off",
+      "react/default-props-match-prop-types":"off"
+    },
+    "plugins": [
+      "import",
+      "promise",
+      "compat",
+      "react"
+    ],
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "paths": ["client"]
+        }
+      }
+    }
+  } 

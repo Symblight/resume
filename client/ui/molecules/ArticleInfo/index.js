@@ -1,4 +1,4 @@
-import React, {Fragment } from 'react';
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -21,27 +21,27 @@ const Content = styled.div`
     font-size: 16px;
 `;
 
-const Summary = ({title, summary}) => {
-    return (
-        <Fragment>
-            <SummaryWrap>
-                <Label>{title}</Label>
-                <Content>{summary}</Content>
-            </SummaryWrap>
-        </Fragment>
-    );
-}
+const Summary = ({ title, summary }) => (
+  <Fragment>
+    <SummaryWrap>
+      <Label>
+        {title}
+      </Label>
+      <Content>
+        {summary}
+      </Content>
+    </SummaryWrap>
+  </Fragment>
+);
 
 export const ArticleInfo = ({
-    date, title, summary
-}) => {
-    return (
-        <Wrapper title={date}>
-            <Summary title={title} summary={summary}/>
-        </Wrapper>
-    );
-};
+  date, title, summary
+}) => (
+  <Wrapper title={date}>
+    <Summary title={title} summary={summary} />
+  </Wrapper>
+);
 
 ArticleInfo.propTypes = {
-    children: PropTypes.any
+
 };

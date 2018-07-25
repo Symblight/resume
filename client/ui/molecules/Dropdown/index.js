@@ -32,7 +32,7 @@ export class Dropdown extends PureComponent {
     super(props);
 
     this.state = {
-      selected: props.index || 0,
+      selected: props.selected || 0,
       show: false,
       items: props.data || []
     };
@@ -48,11 +48,16 @@ export class Dropdown extends PureComponent {
 
   handleClickItem = (index) => {
     const { show } = this.state;
+    const { onClick } = this.props;
 
     this.setState({
       selected: index,
       show: !show
     });
+
+    if (onClick) {
+      onClick(index);
+    }
   }
 
   renderList() {

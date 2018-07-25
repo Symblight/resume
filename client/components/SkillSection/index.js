@@ -1,4 +1,5 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
+import { SizeMe } from 'react-sizeme';
 
 import { Section, TabsNav, Dropdown } from 'ui';
 import GridArticles from '../GridArticles';
@@ -32,19 +33,38 @@ class SkillsSection extends PureComponent {
       });
     }
 
+    renderNavBar() {
+      const { selected } = this.state;
+
+      return (
+        <SizeMe>
+          {
+            ({ size }) => (
+              <Fragment>
+                {
+                  size.width > 740
+                    ? <TabsNav data={TEST_TABS} onClick={this.handleOnClick} selected={selected} />
+                    : <Dropdown data={TEST_TABS} onClick={this.handleOnClick} selected={selected} />
+                }
+              </Fragment>
+            )
+          }
+        </SizeMe>
+      );
+    }
+
     render() {
       const { data } = this.props;
       const { selected } = this.state;
 
       return (
         <Section title="Skills">
-          <TabsNav data={TEST_TABS} onClick={this.handleOnClick} />
+          {this.renderNavBar()}
           <TabContainer selected={selected}>
             <GridArticles data={data.technologies} />
             <GridArticles data={data.languages} />
             <GridArticles data={data.tools} />
           </TabContainer>
-          <Dropdown data={TEST_TABS} />
         </Section>
       );
     }

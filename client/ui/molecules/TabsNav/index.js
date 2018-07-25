@@ -25,8 +25,12 @@ export class TabsNav extends PureComponent {
 
     }
 
-    state = {
-      selected: 0
+    constructor(props) {
+      super(props);
+
+      this.state = {
+        selected: props.selected || 0
+      };
     }
 
     onClick = (event) => {

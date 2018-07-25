@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 
-import { Section, TabsNav } from 'ui';
+import { Section, TabsNav, Dropdown } from 'ui';
 import GridArticles from '../GridArticles';
 import TabContainer from '../TabContainer';
 import withSkills from '../../props-proxy/withSkills';
@@ -44,6 +44,7 @@ class SkillsSection extends PureComponent {
             <GridArticles data={data.languages} />
             <GridArticles data={data.tools} />
           </TabContainer>
+          <Dropdown data={TEST_TABS} />
         </Section>
       );
     }

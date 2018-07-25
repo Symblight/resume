@@ -7,11 +7,11 @@ const Wrapper = styled.div`
     width:100%;
     cursor: pointer;
     transition: background-color .3s, color .3s;
-    background-color: ${palette('white', 2, true)};
-    border-color: ${palette('white', 2, true)};
+    background-color: ${palette('white', 1, true)};
+    border-color: ${palette('white', 1, true)};
 
     &:hover{
-        background-color: ${palette('primary', 0, true)};
+        background-color: ${palette('primary', 3, true)};
     }
 `;
 

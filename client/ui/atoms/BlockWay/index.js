@@ -7,7 +7,7 @@ import { palette } from 'styled-theme';
 const Wrapper = styled.article`
     display: flex;
     flex-direction: row;
-    background-color: ${palette('white', 3, true)};
+    background-color: ${palette('white', 1, true)};
 `;
 
 const Title = styled.div`

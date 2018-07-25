@@ -37,7 +37,7 @@ const Header = styled.header`
 const Content = styled.main`
     display: flex;
     flex-direction: column;
-    background-color: ${palette('grayscale', 1, true)};
+    background-color: ${palette('white', 3, true)};
     flex-grow: 1;
     margin: auto;
     width: 100%;

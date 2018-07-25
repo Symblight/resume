@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { size, palette } from 'styled-theme';
-import { Section } from 'ui';
+import { Section, Email } from 'ui';
+import GridArticles from '../GridArticles';
+
+import data from '../../data/data.json';
 
 const Wrapper = styled.div`
     max-width: ${size('maxWidth')};
@@ -18,8 +21,10 @@ class Contacts extends Component {
     render() {
       return (
         <Wrapper>
-          <Section title="Email">Email</Section>
-          <Section title="Links">Links</Section>
+          <Section title="Email"><Email data={data.email} /></Section>
+          <Section title="Links">
+            <GridArticles data={data.links} />
+          </Section>
         </Wrapper>
       );
     }

@@ -1,73 +1,42 @@
-import React, { PureComponent, Fragment } from 'react';
-import { SizeMe } from 'react-sizeme';
+import React, { PureComponent } from 'react';
 
-import { Section, TabsNav, Dropdown } from 'ui';
+import { Section } from 'ui';
 import GridArticles from '../GridArticles';
 import TabContainer from '../TabContainer';
 import withSkills from '../../props-proxy/withSkills';
-
-const TEST_TABS = [
-  {
-    id: 0,
-    label: 'Technologies'
-  },
-  {
-    id: 1,
-    label: 'Languages'
-  },
-  {
-    id: 2,
-    label: 'Tools'
-  }
-];
+import NavBarSkill from '../NavBarSkills';
 
 class SkillsSection extends PureComponent {
 
-    state = {
-      selected: 0
-    }
+  constructor(props) {
+    super(props);
 
-    handleOnClick = (index) => {
-      this.setState({
-        selected: index
-      });
-    }
+    this.state = {
+      selected: props.selected || 0
+    };
+  }
 
-    renderNavBar() {
-      const { selected } = this.state;
+  handleOnClick = (index) => {
+    this.setState({
+      selected: index
+    });
+  }
 
-      return (
-        <SizeMe>
-          {
-            ({ size }) => (
-              <Fragment>
-                {
-                  size.width > 740
-                    ? <TabsNav data={TEST_TABS} onClick={this.handleOnClick} selected={selected} />
-                    : <Dropdown data={TEST_TABS} onClick={this.handleOnClick} selected={selected} />
-                }
-              </Fragment>
-            )
-          }
-        </SizeMe>
-      );
-    }
+  render() {
+    const { data } = this.props;
+    const { selected } = this.state;
 
-    render() {
-      const { data } = this.props;
-      const { selected } = this.state;
-
-      return (
-        <Section title="Skills">
-          {this.renderNavBar()}
-          <TabContainer selected={selected}>
-            <GridArticles data={data.technologies} />
-            <GridArticles data={data.languages} />
-            <GridArticles data={data.tools} />
-          </TabContainer>
-        </Section>
-      );
-    }
+    return (
+      <Section title="Skills">
+        <NavBarSkill onClick={this.handleOnClick} selected={selected} />
+        <TabContainer selected={selected}>
+          <GridArticles data={data.technologies} />
+          <GridArticles data={data.languages} />
+          <GridArticles data={data.tools} />
+        </TabContainer>
+      </Section>
+    );
+  }
 }
 
 export default withSkills(SkillsSection);

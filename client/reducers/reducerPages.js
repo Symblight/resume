@@ -5,11 +5,11 @@ let initialState = {
   tabs: [
     {
       id: 0,
-      label: 'Обо мне'
+      label: 'About'
     },
     {
       id: 1,
-      label: 'Контакты'
+      label: 'Contacts'
     }
   ]
 };
@@ -24,10 +24,8 @@ export const reducerPage = (state = initialState, action) => {
       };
     }
     default: {
-      return {
-        ...state
-      };
+      return state;
     }
-  
-}
+
+  }
 };

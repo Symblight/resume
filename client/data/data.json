@@ -75,20 +75,24 @@
     ],
     "links":[
         {
-            "vk":"https://vk.com/symblight",
-            "icon":"vk"
+            "url":"https://vk.com/symblight",
+            "img":"facebook"
         },
         {
-            "telegram":"https://t.me/symb_ex",
-            "icon":"telegram"
+            "url":"https://t.me/symb_ex",
+            "img":"telegram"
         },
         {
-            "instagram":"https://www.instagram.com/symblight/",
-            "icon":"instagram"
+            "url":"https://www.instagram.com/symblight/",
+            "img":"instagram"
         },
         {
-            "github":"https://github.com/Symblight/",
-            "icon":"github"
+            "url":"https://github.com/Symblight/",
+            "img":"github"
+        },
+        {
+            "url":"https://facebook.com/Symblight/",
+            "img":"facebook"
         }
     ],
     "email":"symblight@gmail.com",

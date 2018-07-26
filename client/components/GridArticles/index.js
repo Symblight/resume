@@ -26,11 +26,21 @@ class GridArticles extends PureComponent {
     render() {
       const { data } = this.props;
 
+      if (!data) return null;
+
       return (
         <Wrapper>
           {
                 data.map((el, i) => (
-                  <Article key={i} title={el.title} img={el.img}>{el.title}</Article>
+                  <Article
+                    key={i}
+                    title={el.title}
+                    img={el.img}
+                    url={el.url}
+                    {...this.props}
+                  >
+                    {el.title}
+                  </Article>
                 ))
           }
         </Wrapper>

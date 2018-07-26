@@ -14,14 +14,6 @@ const Wrapper = styled.div`
     min-height: 100vh;
     background-color: ${palette('primary', 1, true)};
     background-image: url("data:image/svg+xml, ${svgString}");
-
-    a {
-        color: ${palette('primary', 2, true)};
-    }
-
-    li {
-        color: ${palette('primary', 2, true)};
-    }
 `;
 
 const Container = styled.section`
@@ -72,7 +64,7 @@ export const PageTemplate = ({
 );
 
 PageTemplate.propTypes = {
-  header: PropTypes.node.isRequired,
+  header: PropTypes.node,
   footer: PropTypes.node.isRequired,
   children: PropTypes.any,
 };

@@ -4,9 +4,20 @@ import data from '../data/data.json';
 
 const withSkills = (Component) => {
   class Skills extends PureComponent {
+
+    componentWillMount() {
+      this.setState({
+        skills: data.skills
+      });
+    }
+
     render() {
+      const { skills } = this.state;
+
+      if (!skills) return <h3>Loading</h3>;
+
       return (
-        <Component data={data.skills} {...this.props} />
+        <Component data={skills} {...this.props} />
       );
     }
   }

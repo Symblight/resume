@@ -40,6 +40,7 @@ const UlWrap = styled.ul`
 const LinkFooter = styled.a`
     text-decoration: none;
     cursor: pointer;
+    color: ${palette('white', 3, true)};
 
     &:hover {
         border-bottom: 1px solid  ${palette('primary', 1, true)};

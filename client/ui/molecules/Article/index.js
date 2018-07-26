@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { palette } from 'styled-theme';
 
 import { Block, Icon } from 'ui';
 
-const Wrap = styled(Block)`
+const Wrap = styled.a`
     display: flex;  
     padding: 10px;
     word-wrap: break-word;
@@ -12,6 +13,14 @@ const Wrap = styled(Block)`
     align-items: center;
     font-weight: 700;
     font-size: 18px;
+    transition: background-color .3s, color .3s;
+    background-color: ${palette('white', 1, true)};
+    border-color: ${palette('white', 1, true)};
+    color: ${palette('primary', 1, true)};
+
+    &:hover{
+        background-color: ${palette('grayscale', 1, true)};
+    }
  
     @media screen and (min-width: 768px) {
         width: 150px;
@@ -28,7 +37,7 @@ const Wrap = styled(Block)`
     }
 `;
 
-const IconWrap = styled.div`
+const IconWrap = styled.figure`
     @media screen and (min-width: 768px) {
         margin: auto; 
     }
@@ -51,19 +60,22 @@ const SvgFigure = styled(Icon)`
 `;
 
 export const Article = ({
-  children, img
+  children, img, url
 }, props) => (
-  <Wrap>
-    <IconWrap>
-      {
-        img ? <SvgFigure icon={img} /> : null
-      }
-    </IconWrap>
-    {children}
-  </Wrap>
+  <Block href={url || '#'}>
+    <Wrap>
+      <IconWrap>
+        {
+         img ? <SvgFigure icon={img} /> : null
+        }
+      </IconWrap>
+      {children}
+    </Wrap>
+  </Block>
 );
 
 Article.propTypes = {
   img: PropTypes.string,
-  children: PropTypes.any
+  children: PropTypes.any,
+  url: PropTypes.string
 };

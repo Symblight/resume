@@ -38,5 +38,7 @@ export const BlockWay = ({
 );
 
 BlockWay.propTypes = {
-  children: PropTypes.any
+  children: PropTypes.any,
+  className: PropTypes.string,
+  title: PropTypes.string
 };

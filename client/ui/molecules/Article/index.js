@@ -2,10 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import { palette } from 'styled-theme';
-
-import { Block, Label, Icon } from 'ui';
-import SVG from '../../../components/ImageSVG';
+import { Block, Icon } from 'ui';
 
 const Wrap = styled(Block)`
     display: flex;  
@@ -54,7 +51,7 @@ const SvgFigure = styled(Icon)`
 `;
 
 export const Article = ({
-  title, children, img
+  children, img
 }, props) => (
   <Wrap>
     <IconWrap>
@@ -67,6 +64,6 @@ export const Article = ({
 );
 
 Article.propTypes = {
-  title: PropTypes.string,
+  img: PropTypes.string,
   children: PropTypes.any
 };

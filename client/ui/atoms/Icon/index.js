@@ -21,4 +21,8 @@ export const Icon = ({
 
 Icon.propTypes = {
   icon: PropTypes.string.isRequired,
+  width: PropTypes.string,
+  height: PropTypes.string,
+  fill: PropTypes.string,
+  className: PropTypes.string,
 };

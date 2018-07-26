@@ -1,10 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { withSize } from 'react-sizeme';
+import withSizes from 'react-sizes';
 
-import { Section, TabsNav, Dropdown } from 'ui';
-
-const withSizeHOC = withSize();
+import { TabsNav, Dropdown } from 'ui';
 
 const TEST_TABS = [
   {
@@ -22,6 +20,12 @@ const TEST_TABS = [
 ];
 
 class NavBar extends PureComponent {
+
+  static propTypes = {
+    selected: PropTypes.string,
+    isMobile: PropTypes.bool
+  }
+
   constructor(props) {
     super(props);
 
@@ -39,9 +43,9 @@ class NavBar extends PureComponent {
     }
 
     render() {
-      const { size, selected } = this.props;
+      const { isMobile, selected } = this.props;
 
-      if (size.width < 740) {
+      if (isMobile) {
         return <Dropdown data={TEST_TABS} onClick={this.onClick} selected={selected} />;
       }
       return (
@@ -50,4 +54,8 @@ class NavBar extends PureComponent {
     }
 }
 
-export default withSizeHOC(NavBar);
+const mapSizesToProps = ({ width }) => ({
+  isMobile: width < 770,
+});
+
+export default withSizes(mapSizesToProps)(NavBar);

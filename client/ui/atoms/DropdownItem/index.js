@@ -19,7 +19,10 @@ const Wrapper = styled.div`
 
 export class DropdownItem extends PureComponent {
     static propTypes = {
-
+      onClick: PropTypes.func,
+      index: PropTypes.string,
+      className: PropTypes.string,
+      children: PropTypes.any
     }
 
     onClick = (event) => {

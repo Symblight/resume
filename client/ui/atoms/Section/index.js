@@ -41,5 +41,6 @@ export const Section = ({
 );
 
 Section.propTypes = {
-  children: PropTypes.any
+  children: PropTypes.any,
+  title: PropTypes.string
 };

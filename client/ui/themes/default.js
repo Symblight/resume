@@ -3,13 +3,13 @@ import { reversePalette } from 'styled-theme/composer';
 const theme = {};
 
 theme.palette = {
-  primary: ['#5352ed', '#2196f3'],
+  primary: ['#212121', '#1f1f1f'],
   custome: ['#D500F9', '#E040FB', '#4A148C', '#8E24AA'],
   danger: ['#d32f2f', '#f44336', '#f8877f', '#ffcdd2'],
   alert: ['#ffa000', '#ffc107', '#ffd761', '#ffecb3'],
   success: ['#388e3c', '#4caf50', '#7cc47f', '#c8e6c9'],
   white: ['#fff', '#fff', '#f9f9f9', '#cacaca'],
-  dark: ['#212121', '#424242'],
+  dark: ['#212121', '#1f1f1f'],
   green: ['#C6FF00', '#8BC34A'],
   grayscale: [
     '#f9f9fb',

@@ -1,10 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { size, palette } from 'styled-theme';
 import { connect } from 'react-redux';
-
-import SvgBackground from 'assets/images/coffee.svg';
 
 import { Hero, TabsNav } from 'ui';
 import { changeSelectedPage } from './actions';
@@ -23,21 +20,6 @@ const Wrapper = styled.section`
     }
 `;
 
-const WrapTabs = styled.div`
-    width: 100%;
-    opacity: 0.25;
-    height: 50px;
-    z-index: 1;
-
-    @media screen and (min-width: 768px) {
-        background-color: ${palette('white', 3, true)};
-    }
-
-    @media screen and (max-width: 768px) {
-
-    }
-`;
-
 const ContainerTabs = styled.div`
     display: flex;
     position: relative;
@@ -47,6 +29,12 @@ const ContainerTabs = styled.div`
 
 @withHero
 class Header extends PureComponent {
+
+  static propTypes = {
+    onSelect: PropTypes.func,
+    data: PropTypes.any,
+    tabs: PropTypes.arrayOf(Object)
+  }
 
     handleSelectedPage = (index) => {
       const { onSelect } = this.props;

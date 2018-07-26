@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import _ from 'lodash';
+import { palette } from 'styled-theme';
 
 import { Tab } from 'ui';
 
@@ -17,12 +18,16 @@ const Wrapper = styled.ul`
     @media screen and (max-width: 768px) {
         flex-direction: column
         width: 100%;
+        background-color: ${palette('primary', 1, true)};
     }
 `;
 
 export class TabsNav extends PureComponent {
     static propTypes = {
-
+      selected: PropTypes.string,
+      onClick: PropTypes.func,
+      color: PropTypes.string,
+      data: PropTypes.arrayOf(Object)
     }
 
     constructor(props) {

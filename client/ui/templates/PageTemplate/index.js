@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { palette, size } from 'styled-theme';
 import { renderToStaticMarkup } from 'react-dom/server';
 
-import SvgBackground from 'assets/images/coffee.svg';
+import SvgBackground from 'assets/images/vision.svg';
 
 const svgString = encodeURIComponent(renderToStaticMarkup(<SvgBackground />));
 
@@ -36,6 +36,7 @@ const Header = styled.header`
 
 const Content = styled.main`
     display: flex;
+    postion: relative;
     flex-direction: column;
     background-color: ${palette('white', 3, true)};
     flex-grow: 1;

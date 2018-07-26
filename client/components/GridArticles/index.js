@@ -29,10 +29,10 @@ class GridArticles extends PureComponent {
       return (
         <Wrapper>
           {
-                    data.map((el, i) => (
-                      <Article key={i} title={el.title} img={el.img}>{el.title}</Article>
-                    ))
-                }
+                data.map((el, i) => (
+                  <Article key={i} title={el.title} img={el.img}>{el.title}</Article>
+                ))
+          }
         </Wrapper>
       );
     }

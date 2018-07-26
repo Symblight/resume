@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import Ava from 'assets/ava.jpg';
 import { Avatar } from 'ui';
@@ -50,3 +51,8 @@ export const Hero = ({
     </Description>
   </Wrapper>
 );
+
+Hero.propTypes = {
+  children: PropTypes.any,
+  className: PropTypes.string
+};

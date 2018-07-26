@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -22,16 +22,14 @@ const Content = styled.div`
 `;
 
 const Summary = ({ title, summary }) => (
-  <Fragment>
-    <SummaryWrap>
-      <Label>
-        {title}
-      </Label>
-      <Content>
-        {summary}
-      </Content>
-    </SummaryWrap>
-  </Fragment>
+  <SummaryWrap>
+    <Label>
+      {title}
+    </Label>
+    <Content>
+      {summary}
+    </Content>
+  </SummaryWrap>
 );
 
 export const ArticleInfo = ({
@@ -43,5 +41,12 @@ export const ArticleInfo = ({
 );
 
 ArticleInfo.propTypes = {
+  date: PropTypes.string,
+  title: PropTypes.string,
+  summary: PropTypes.string
+};
 
+Summary.propTypes = {
+  title: PropTypes.string,
+  summary: PropTypes.string
 };

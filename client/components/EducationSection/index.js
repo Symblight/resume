@@ -7,7 +7,7 @@ import withEducation from '../../props-proxy/withEducation';
 
 class EducationSection extends PureComponent {
     static propTypes = {
-
+      data: PropTypes.arrayOf(Object)
     }
 
     render() {

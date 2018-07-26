@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 import { Section } from 'ui';
 import GridArticles from '../GridArticles';
@@ -7,6 +8,11 @@ import withSkills from '../../props-proxy/withSkills';
 import NavBarSkill from '../NavBarSkills';
 
 class SkillsSection extends PureComponent {
+
+  static propTypes = {
+    selected: PropTypes.string,
+    data: PropTypes.arrayOf(Object)
+  }
 
   constructor(props) {
     super(props);

@@ -50,6 +50,17 @@ const Label = styled.span`
 `;
 
 export class Tab extends PureComponent {
+  static propTypes = {
+    label: PropTypes.string,
+    color: PropTypes.string,
+    active: PropTypes.bool,
+    className: PropTypes.string
+  }
+
+  static defaultProps = {
+    color: 'dark'
+  }
+
   render() {
     const {
       onClick, active, label, color, className
@@ -67,12 +78,3 @@ export class Tab extends PureComponent {
     );
   }
 }
-
-Tab.propTypes = {
-  label: PropTypes.string,
-  color: PropTypes.string
-};
-
-Tab.defaultProps = {
-  color: 'dark'
-};

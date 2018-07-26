@@ -25,7 +25,9 @@ const Title = styled.span`
 
 export class Dropdown extends PureComponent {
   static propTypes = {
-    data: PropTypes.arrayOf(Object)
+    data: PropTypes.arrayOf(Object),
+    selected: PropTypes.string,
+    onClick: PropTypes.func
   }
 
   constructor(props) {

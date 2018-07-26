@@ -8,7 +8,7 @@ import Contacts from '../Contacts';
 
 class InfoContainer extends PureComponent {
   static propTypes = {
-    selectedIndex: PropTypes.string
+    selectedIndex: PropTypes.number
   }
 
   render() {

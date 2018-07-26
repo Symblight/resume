@@ -26,7 +26,7 @@ const Title = styled.span`
 export class Dropdown extends PureComponent {
   static propTypes = {
     data: PropTypes.arrayOf(Object),
-    selected: PropTypes.string,
+    selected: PropTypes.number,
     onClick: PropTypes.func
   }
 
@@ -52,13 +52,15 @@ export class Dropdown extends PureComponent {
     const { show } = this.state;
     const { onClick } = this.props;
 
+    let id = _.toNumber(index);
+
     this.setState({
-      selected: index,
+      selected: id,
       show: !show
     });
 
     if (onClick) {
-      onClick(index);
+      onClick(id);
     }
   }
 

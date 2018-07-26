@@ -24,7 +24,7 @@ const Wrapper = styled.ul`
 
 export class TabsNav extends PureComponent {
     static propTypes = {
-      selected: PropTypes.string,
+      selected: PropTypes.number,
       onClick: PropTypes.func,
       color: PropTypes.string,
       data: PropTypes.arrayOf(Object)
@@ -42,12 +42,13 @@ export class TabsNav extends PureComponent {
       const { onClick } = this.props;
 
       event.preventDefault();
+      let index = _.toNumber(event.currentTarget.id);
 
       if (onClick) {
-        onClick(event.currentTarget.id);
+        onClick(index);
       }
 
-      this.setState({ selected: event.currentTarget.id });
+      this.setState({ selected: index });
     }
 
     render() {
@@ -64,7 +65,7 @@ export class TabsNav extends PureComponent {
                   aria-controls={`panel${id}`}
                   id={id}
                   onClick={this.onClick}
-                  active={selected.toString() === id.toString()}
+                  active={selected === id}
                   label={item.label}
                   color={color}
                 />

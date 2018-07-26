@@ -22,7 +22,7 @@ const TEST_TABS = [
 class NavBar extends PureComponent {
 
   static propTypes = {
-    selected: PropTypes.string,
+    selected: PropTypes.number,
     isMobile: PropTypes.bool
   }
 

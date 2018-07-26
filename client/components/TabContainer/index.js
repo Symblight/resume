@@ -32,7 +32,7 @@ const Wrapper = styled.article`
 class TabConatiner extends PureComponent {
     static propTypes = {
       children: PropTypes.any,
-      selected: PropTypes.string
+      selected: PropTypes.number
     }
 
     constructor(props) {

@@ -11,7 +11,7 @@ class SkillsSection extends PureComponent {
 
   static propTypes = {
     selected: PropTypes.string,
-    data: PropTypes.arrayOf(Object)
+    data: PropTypes.object
   }
 
   constructor(props) {

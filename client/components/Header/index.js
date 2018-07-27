@@ -1,11 +1,17 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { Hero, TabsNav } from 'ui';
 import { changeSelectedPage } from './actions';
 import withHero from '../../props-proxy/withHero';
+
+const Links = [
+  '/',
+  '/contacts'
+];
 
 const Wrapper = styled.section`
     display: flex;
@@ -25,6 +31,22 @@ const ContainerTabs = styled.div`
     position: relative;
     justify-content: center;
     margin-top: 1rem;
+`;
+
+const LinkWrap = styled(Link)`
+    text-decoration: none;
+    font-size: 24px;
+    color: #fff;
+    font-weight: 700;
+    padding: 1rem;
+
+    &:hover {
+        border-bottom: 1px solid red;
+    }
+
+    &:active {
+      border-bottom: 1px solid green;
+    }
 `;
 
 @withHero
@@ -49,7 +71,9 @@ class Header extends PureComponent {
         <Wrapper>
           <Hero>{data}</Hero>
           <ContainerTabs>
-            <TabsNav onClick={this.handleSelectedPage} data={tabs} color="white" />
+            {
+              <TabsNav onClick={this.handleSelectedPage} data={tabs} color="white" routers={Links} />
+            }
           </ContainerTabs>
         </Wrapper>
       );
@@ -64,4 +88,4 @@ const mapDispatchToProps = (dispatch) => ({
   onSelect: (index) => dispatch(changeSelectedPage(index))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));

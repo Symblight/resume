@@ -52,7 +52,7 @@ export class TabsNav extends PureComponent {
     }
 
     render() {
-      const { data, color } = this.props;
+      const { data, color, routers } = this.props;
       const { selected } = this.state;
 
       return (
@@ -62,12 +62,12 @@ export class TabsNav extends PureComponent {
                 <Tab
                   role="tab"
                   key={id}
-                  aria-controls={`panel${id}`}
                   id={id}
                   onClick={this.onClick}
                   active={selected === id}
                   label={item.label}
                   color={color}
+                  router={routers ? routers[id] : false}
                 />
               ))
           }

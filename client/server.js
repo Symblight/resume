@@ -18,7 +18,10 @@ export default function serverRenderer() {
     const sheet = new ServerStyleSheet();
     const context = {};
     const markup = ReactDOMServer.renderToString(
-      <StaticRouter>
+      <StaticRouter
+        location={req.url}
+        context={context}
+      >
         <AppContainer>
           <ThemeProvider theme={theme}>
             <Provider store={store}>

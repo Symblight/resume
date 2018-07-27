@@ -1,4 +1,6 @@
 import React, { PureComponent } from 'react';
+
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -54,26 +56,56 @@ export class Tab extends PureComponent {
     label: PropTypes.string,
     color: PropTypes.string,
     active: PropTypes.bool,
-    className: PropTypes.string
+    className: PropTypes.string,
+    router: PropTypes.string
   }
 
   static defaultProps = {
     color: 'dark'
   }
 
-  render() {
+  renderWithLink() {
     const {
-      onClick, active, label, color, className
+      active, label, color, router
     } = this.props;
 
     return (
-      <Wrapper onClick={onClick} className={className} {...this.props}>
+      <Link to={router}>
         <Label
           active={active}
           color={color}
         >
           {label}
         </Label>
+      </Link>
+    );
+  }
+
+  renderWithoutLink() {
+    const {
+      active, label, color
+    } = this.props;
+
+    return (
+      <Label
+        active={active}
+        color={color}
+      >
+        {label}
+      </Label>
+    );
+  }
+
+  render() {
+    const {
+      onClick, className, router
+    } = this.props;
+
+    return (
+      <Wrapper onClick={onClick} className={className} {...this.props}>
+        {
+          router ? this.renderWithLink() : this.renderWithoutLink()
+        }
       </Wrapper>
     );
   }

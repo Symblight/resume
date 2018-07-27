@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import { PageTemplate, Footer } from 'ui';
-
 const Wrapper = styled.div`
   display: flex;
   text-align: center;
@@ -16,14 +14,10 @@ export default class NotFoundPage extends Component {
     const { location } = this.props;
 
     return (
-      <PageTemplate
-        footer={<Footer />}
-      >
-        <Wrapper>
-          <h2>Ooops..</h2>
-          <h3>Not Found Page {location.pathname}</h3>
-        </Wrapper>
-      </PageTemplate>
+      <Wrapper>
+        <h2>Ooops..</h2>
+        <h3>Not Found Page {location.pathname}</h3>
+      </Wrapper>
     );
   }
 }

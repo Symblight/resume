@@ -67,7 +67,7 @@ export class TabsNav extends PureComponent {
                   active={selected === id}
                   label={item.label}
                   color={color}
-                  router={routers ? routers[id] : false}
+                  router={routers ? routers[id] : null}
                 />
               ))
           }

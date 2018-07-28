@@ -3,15 +3,22 @@
         ["env"], ["react"], ["stage-0"]
     ],
     "plugins": [
-      "transform-decorators-legacy"
+      "transform-decorators-legacy",
+      ["babel-plugin-styled-components", {
+        "ssr": true,
+        "displayName": false,
+        "minify": true
+      }]
     ],
     "env":{
         "development": {
             "plugins": [
               "react-hot-loader/babel",
-              "babel-plugin-styled-components",  {
-                "ssr": true
-              }
+              ["babel-plugin-styled-components", {
+                "ssr": true,
+                "displayName": false,
+                "minify": true
+              }]
             ]
           },
         "production": {

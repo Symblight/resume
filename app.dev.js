@@ -17,26 +17,26 @@ app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(webpackDevMiddleware(compiler, {
-    hot: true,
-    publicPath: '/',
-    historyApiFallback: true,
-    stats: {
-      colors: true,
-      hash: false,
-      timings: true,
-      chunks: false,
-      chunkModules: false,
-      modules: false,
-    }
-  }));
+  hot: true,
+  publicPath: '/',
+  historyApiFallback: true,
+  stats: {
+    colors: true,
+    hash: false,
+    timings: true,
+    chunks: false,
+    chunkModules: false,
+    modules: false,
+  }
+}));
 app.use(webpackHotMiddleware(compiler.compilers.find(comp => comp.name === 'client')));
 app.use(webpackHotServerMiddleware(compiler));
 
 const server = http.createServer(app).listen(port, (err) => {
-    if (err) {
-        console.error(err);
-    }
-    console.log(`server runing on port: ${port}`)
+  if (err) {
+    console.error(err);
+  }
+  console.log(`server runing on port: ${port}`);
 });
 
 export default app;

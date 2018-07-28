@@ -1,52 +1,76 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import SVG from '../../../components/ImageSVG';
-
 import { palette } from 'styled-theme';
 
-import { Block, Label, Icon } from 'ui';
+import { Block, Icon } from 'ui';
 
-const Wrap = styled(Block)`
-    display: flex;
-    flex-direction: row;    
+const Wrap = styled.a`
+    display: flex;  
     padding: 10px;
     word-wrap: break-word;
     border-radius: 6px;
     align-items: center;
     font-weight: 700;
- 
+    font-size: 18px;
+    transition: background-color .3s, color .3s;
+    background-color: ${palette('white', 1, true)};
+    border-color: ${palette('white', 1, true)};
+    color: ${palette('primary', 1, true)};
+
+    width: 150px;
+    height: 150px;
+    margin: 12px;
+    flex-direction: column;  
+
+    &:hover{
+        background-color: ${palette('grayscale', 1, true)};
+        color: ${palette('primary', 1, true)};
+    }
+
+`;
+
+const IconWrap = styled.figure`
     @media screen and (min-width: 768px) {
-        width: 240px;
-        margin: 12px
+        margin: auto; 
     }
 
     @media screen and (max-width: 768px) {
-        width: 100%;
-        border-bottom: 1px solid #eee;
+        height: 100%;
+        align-items: center;
+        display: flex;
     }
 `;
 
-const IconWrap = styled.div`
-    margin-right: 6px;
+const SvgFigure = styled(Icon)`
+    @media screen and (min-width: 768px) {
+        width: 85px;
+        height: 85px;
+    }
+
+    @media screen and (max-width: 768px) {
+        width: 55px;
+        height: 55px;
+    }
 `;
 
 export const Article = ({
-    title, children, img
-}, props) => {
-    return (
-        <Wrap>
-            <IconWrap>
-                {
-                    img ? <Icon  width="35" height="35" icon={img} /> : null
-                }
-            </IconWrap>
-            {children}
-        </Wrap>
-    );
-}
+  children, img, url
+}, props) => (
+  <Block>
+    <Wrap href={url || '/#'}>
+      <IconWrap>
+        {
+         img ? <SvgFigure icon={img} /> : null
+        }
+      </IconWrap>
+      {children}
+    </Wrap>
+  </Block>
+);
 
 Article.propTypes = {
-    title: PropTypes.string,
-    children: PropTypes.any
+  img: PropTypes.string,
+  children: PropTypes.any,
+  url: PropTypes.string
 };

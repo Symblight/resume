@@ -2,38 +2,40 @@ import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const Wrapper = styled.div`
+const Wrapper = styled.article`
     width: 100%;
     padding-top: 1rem;
 `;
 
 class TabConatiner extends PureComponent {
-    constructor(props){
-        super(props);
+    static propTypes = {
+      children: PropTypes.any,
+      selected: PropTypes.number
+    }
 
-        this.state = {
-            selected: this.props.selected || 0
-        }
+    constructor(props) {
+      super(props);
+
+      this.state = {
+        selected: props.selected || 0
+      };
     }
 
     componentWillReceiveProps(nextProps) {
-        this.setState({
-            selected: nextProps.selected
-        })
-    }
-
-    static propTypes = {
-        children: PropTypes.any
+      this.setState({
+        selected: nextProps.selected
+      });
     }
 
     render() {
-        const { children } = this.props;
+      const { children } = this.props;
+      const { selected } = this.state;
 
-        return (
-            <Wrapper>
-                { children ?  children[this.state.selected] : null }
-            </Wrapper>
-        )
+      return (
+        <Wrapper>
+          { children ? children[selected] : null }
+        </Wrapper>
+      );
     }
 }
 

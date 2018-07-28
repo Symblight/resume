@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { size, palette } from 'styled-theme';
 
-const Wrapper  = styled.div`
+import { Icon } from 'ui';
+
+const Wrapper = styled.div`
     margin: 0 auto;
     width: 100%;
     max-width: ${size('maxWidth')};
@@ -26,25 +28,35 @@ const UlWrap = styled.ul`
 
     @media screen and (max-width: 768px) {
         flex-direction: column;
+        align-items: center;
+        
+    }
+
+    li {
+        padding: 2px;
     }
 `;
 
 const LinkFooter = styled.a`
     text-decoration: none;
     cursor: pointer;
+    color: ${palette('white', 3, true)};
 
     &:hover {
         border-bottom: 1px solid  ${palette('primary', 1, true)};
     }
 `;
 
-export const Footer = (props) => {
-    return (
-        <Wrapper>
-            <UlWrap>
-                <li><LinkFooter>made by Alexey Tkachenko 2018</LinkFooter></li>
-                <li><LinkFooter>github</LinkFooter></li>
-            </UlWrap>
-        </Wrapper>
-    );
-}
+export const Footer = (props) => (
+  <Wrapper>
+    <UlWrap>
+      <li>
+        <LinkFooter>made by Alexey Tkachenko 2018</LinkFooter>
+      </li>
+      <li>
+        <LinkFooter href="https://github.com/symblight">github</LinkFooter>
+      </li>
+      <li>version 1.0.0</li>
+    </UlWrap>
+  </Wrapper>
+);

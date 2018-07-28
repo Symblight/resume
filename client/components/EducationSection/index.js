@@ -1,26 +1,33 @@
-import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
-
-import data from '../../data/data.json';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 import { Section, ArticleInfo } from 'ui';
+import withEducation from '../../props-proxy/withEducation';
+
 
 class EducationSection extends PureComponent {
     static propTypes = {
-
+      data: PropTypes.arrayOf(Object)
     }
 
     render() {
-        return (
-            <Section title='Education'>
-            {
-                data.education.map((el, i) => 
-                    <ArticleInfo title={el.title} date={el.date} summary={el.discription} key={i}/>
-                )
-            }
-            </Section>
-        )
+      const { data } = this.props;
+
+      return (
+        <Section title="Education">
+          {
+            data.map((el, i) => (
+              <ArticleInfo
+                title={el.title}
+                date={el.date}
+                summary={el.discription}
+                key={i}
+              />
+            ))
+          }
+        </Section>
+      );
     }
 }
 
-export default EducationSection;
+export default withEducation(EducationSection);

@@ -78,9 +78,9 @@ module.exports = [{
               plugins: ['react-hot-loader/babel']
             }
           },
-          // {
-          //   loader: 'eslint-loader'
-       //   }
+           {
+             loader: 'eslint-loader'
+          }
         ]
       },
       {

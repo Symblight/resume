@@ -2,32 +2,39 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { palette, size } from 'styled-theme';
+import { renderToStaticMarkup } from 'react-dom/server';
+
+import SvgBackground from 'assets/images/vision.svg';
+
+const svgString = encodeURIComponent(renderToStaticMarkup(<SvgBackground />));
 
 const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: ${palette('grayscale', 1, true)};
-
-    a {
-        color: ${palette('primary', 2, true)};
-    }
+    background-color: ${palette('primary', 1, true)};
+    background-image: url("data:image/svg+xml, ${svgString}");
 `;
 
 const Container = styled.section`
     flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
 `;
 
 const Header = styled.header`
     border-bottom: solid 1px #e4e4eb;
-    background-color: ${palette('dark', 1, true)};
 `;
 
 const Content = styled.main`
     display: flex;
+    postion: relative;
     flex-direction: column;
-    max-width: ${size('maxWidth')};
-    margin: 0 auto;
+    background-color: ${palette('white', 3, true)};
+    flex-grow: 1;
+    margin: auto;
+    width: 100%;
+    padding-top: 12px;
 `;
 
 const Footer = styled.footer`
@@ -43,24 +50,22 @@ const Line = styled.span`
 `;
 
 export const PageTemplate = ({
-    header, footer, children,
-}) => {
-    return (
-        <Wrapper>
-            <Container>
-                <Header>{header}</Header>
-                <Content>{children}</Content>
-            </Container> 
-            <Footer>
-                <Line />
-                {footer}
-            </Footer>
-        </Wrapper>
-    )
-}
+  header, footer, children,
+}) => (
+  <Wrapper>
+    <Container>
+      <Header>{header}</Header>
+      <Content>{children}</Content>
+    </Container>
+    <Footer>
+      <Line />
+      {footer}
+    </Footer>
+  </Wrapper>
+);
 
 PageTemplate.propTypes = {
-    header: PropTypes.node.isRequired,
-    footer: PropTypes.node.isRequired,
-    children: PropTypes.any,
-  }
+  header: PropTypes.node,
+  footer: PropTypes.node.isRequired,
+  children: PropTypes.any,
+};

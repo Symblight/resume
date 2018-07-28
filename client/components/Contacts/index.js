@@ -1,27 +1,35 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { size, palette } from 'styled-theme';
-import { Section } from 'ui';
+import { size } from 'styled-theme';
+import { Section, Email } from 'ui';
+import GridArticles from '../GridArticles';
+
+import data from '../../data/data.json';
 
 const Wrapper = styled.div`
-    
+    max-width: ${size('maxWidth')};
+    @media screen and (min-width: 768px) {
+      margin: 0 auto;
+    }
 `;
 
- class Contacts extends Component {
+class Contacts extends Component {
     static propTypes = {
 
     }
 
     render() {
-        return (
-            <Wrapper>
-                    <Section title='Email'>Email</Section>
-                    <Section title='Links'>Links</Section>
-            </Wrapper>
-        )
+      return (
+        <Wrapper>
+          <Section title="Email"><Email data={data.email} /></Section>
+          <Section title="Links">
+            <GridArticles data={data.links} />
+          </Section>
+        </Wrapper>
+      );
     }
 }
 
-export default Contacts
+export default Contacts;

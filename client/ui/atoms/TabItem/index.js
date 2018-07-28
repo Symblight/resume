@@ -9,15 +9,13 @@ const Wrapper = styled.article`
 `;
 
 export const TabItem = ({
-    children
-}) => {
-    return (
-        <Wrapper>
-            {children}
-        </Wrapper>
-    );
-}
+  children
+}) => (
+  <Wrapper>
+    {children}
+  </Wrapper>
+);
 
 TabItem.propTypes = {
-    children: PropTypes.any
-}
+  children: PropTypes.any
+};

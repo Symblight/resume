@@ -1,70 +1,61 @@
-import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { size, palette } from 'styled-theme';
-import { connect } from 'react-redux';
+import { Link, withRouter } from 'react-router-dom';
 
-import Background from 'assets/background.jpg';
+import { Hero, TabsNavLink } from 'ui';
+import withHero from '../../props-proxy/withHero';
 
-import { Hero, TabsNav } from 'ui';
-import { changeSelectedPage } from './actions';
+const Links = [
+  {
+    link: '/',
+    label: 'About'
+  },
+  {
+    link: '/contacts',
+    label: 'Contacts'
+  }
+];
 
 const Wrapper = styled.section`
     display: flex;
     flex-direction: column;
-    min-height: 40vh;
     padding-top: 1rem;
+    min-height: 50vh;
     justify-content: center;
 
+
     @media screen and (min-width: 768px) {
-       // background: url(${Background}) no-repeat center bottom fixed;
         background-size: cover;
     }
-
-
 `;
 
-const WrapTabs = styled.div`
+const Content = styled.div`
     display: flex;
-    width: 100%;
+    flex: 1 auto;
     justify-content: center;
-    margin-top: 1rem;
-
-    @media screen and (min-width: 768px) {
-        background-color: ${palette('white', 3, true)};
-    }
-
-    @media screen and (max-width: 768px) {
-
-    }
+    align-items: center;
 `;
 
+@withHero
 class Header extends PureComponent {
 
-    handleSelectedPage = (index) => {
-        this.props.onSelect(index);
-    }
+  static propTypes = {
+    data: PropTypes.any
+  }
 
-    render() {
-        return (
-            <Wrapper>
-                    <Hero />
-                <WrapTabs><TabsNav onClick={this.handleSelectedPage} data={this.props.tabs}/></WrapTabs>
-            </Wrapper>
-        );
-    }
+  render() {
+    const { data, location } = this.props;
+
+    return (
+      <Wrapper>
+        <Content>
+          <Hero title={data.name}>{data.summary}</Hero>
+        </Content>
+        <TabsNavLink data={Links} location={location.pathname} />
+      </Wrapper>
+    );
+  }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        tabs: state.reducerPage.tabs
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onSelect: (index) => dispatch(changeSelectedPage(index))
-    };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default withRouter(Header);

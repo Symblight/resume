@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-import Route from '../routers';
+import About from './pages/About';
 
 export default class App extends Component {
-    render() {
-        return (
-            <Route />
-        )
-    }
+  render() {
+    return (
+      <About />
+    );
+  }
 }

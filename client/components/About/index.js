@@ -1,31 +1,27 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-
-import { size, palette } from 'styled-theme';
+import { size } from 'styled-theme';
 
 import ProjectsSection from '../ProjectsSection';
-import TabContainer from '../TabContainer';
 import SkillsSection from '../SkillSection';
 import EducationSection from '../EducationSection';
 
 const Wrapper = styled.div`
-  
+  max-width: ${size('maxWidth')};
+  @media screen and (min-width: 768px) {
+    margin: 0 auto;
+  }
 `;
 
 class About extends Component {
-  static propTypes = {
-  }
-
   render() {
     return (
       <Wrapper>
-            <SkillsSection />
-            <EducationSection />
-            <ProjectsSection />
+        <SkillsSection />
+        <EducationSection />
       </Wrapper>
-    )
+    );
   }
-};
+}
 
 export default About;

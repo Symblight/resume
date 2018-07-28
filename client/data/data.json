@@ -24,12 +24,6 @@
                 "title":"React-Native",
                 "img":"react",
                 "link":""
-            },
-            {
-                "id":4,
-                "title":"lol",
-                "img":"react",
-                "link":""
             }
         ],
         "tools":[
@@ -71,7 +65,7 @@
         {
             "date":"2013-2016",
             "title":"college",
-            "discription":"developer"
+            "discription":"Living in this beautiful planet called Earth, I don’t recall any earthling who had chosen the coordinates where they were given life to. There are these colorful sheets called flags which determine the land that we can walk over. "
         },
         {
             "date":"2016-2020",
@@ -81,22 +75,29 @@
     ],
     "links":[
         {
-            "vk":"https://vk.com/symblight",
-            "icon":"vk"
+            "url":"https://vk.com/symblight",
+            "img":"facebook"
         },
         {
-            "telegram":"https://t.me/symb_ex",
-            "icon":"telegram"
+            "url":"https://t.me/symb_ex",
+            "img":"telegram"
         },
         {
-            "instagram":"https://www.instagram.com/symblight/",
-            "icon":"instagram"
+            "url":"https://www.instagram.com/symblight/",
+            "img":"instagram"
         },
         {
-            "github":"https://github.com/Symblight/",
-            "icon":"github"
+            "url":"https://github.com/Symblight/",
+            "img":"github"
+        },
+        {
+            "url":"https://facebook.com/Symblight/",
+            "img":"facebook"
         }
     ],
     "email":"symblight@gmail.com",
-    "about":"My name is Alexey" 
+    "about":{
+        "name": "Alexey Tkachenko",
+        "summary": "Hey! My name is Alexey and I'm web developer. My stack: React, NodeJS"
+    }
 }

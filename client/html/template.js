@@ -1,4 +1,4 @@
-export default ({ markup, styles }) => `<!doctype html>
+export default ({ markup, styles, reduxState }) => `<!doctype html>
 <html lang="ru">
 <head>
     <meta charset="utf-8">
@@ -14,6 +14,9 @@ export default ({ markup, styles }) => `<!doctype html>
 </head>
 <body>
     <div id="root">${markup}</div>
+    <script>
+        window.REDUX_DATA = ${JSON.stringify(reduxState)}
+    </script>
     <script src="app.bundle.js"></script>
 </body>
 </html>`;

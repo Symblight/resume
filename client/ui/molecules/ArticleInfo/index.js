@@ -2,14 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import { Label } from 'ui';
+import { Label, BlockWay } from 'ui';
 
-const Wrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    background-color: #fff;
+const Wrapper = styled(BlockWay)`
     margin-bottom: 12px;
-    padding: 12px;
 
     @media screen and (max-width: 768px) {
 
@@ -21,24 +17,36 @@ const SummaryWrap = styled.div`
     flex-direction: column;
 `;
 
-const DateWrap = styled.div`
-    padding: 1rem;
+const Content = styled.div`
+    font-size: 16px;
 `;
 
+const Summary = ({ title, summary }) => (
+  <SummaryWrap>
+    <Label>
+      {title}
+    </Label>
+    <Content>
+      {summary}
+    </Content>
+  </SummaryWrap>
+);
+
 export const ArticleInfo = ({
-    date, title, summary
-}) => {
-    return (
-        <Wrapper>
-            <DateWrap>{date}</DateWrap>
-            <SummaryWrap>
-                <Label>{title}</Label>
-                <div>{summary}</div>
-            </SummaryWrap>
-        </Wrapper>
-    );
-};
+  date, title, summary
+}) => (
+  <Wrapper title={date}>
+    <Summary title={title} summary={summary} />
+  </Wrapper>
+);
 
 ArticleInfo.propTypes = {
-    children: PropTypes.any
+  date: PropTypes.string,
+  title: PropTypes.string,
+  summary: PropTypes.string
+};
+
+Summary.propTypes = {
+  title: PropTypes.string,
+  summary: PropTypes.string
 };

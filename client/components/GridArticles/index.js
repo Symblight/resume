@@ -9,34 +9,42 @@ const Wrapper = styled.article`
     justify-content: center;
     flex-wrap: wrap;
 
-    
     @media screen and (min-width: 768px) {
-        flex-direction: row;
+       
     }
 
     @media screen and (max-width: 768px) {
-        flex-direction: column;
+      
     }
 `;
 
 class GridArticles extends PureComponent {
     static propTypes = {
-        data: PropTypes.arrayOf(String)
+      data: PropTypes.arrayOf(String)
     }
 
     render() {
-        const { data } = this.props;
+      const { data } = this.props;
 
-        return (
-            <Wrapper>
-                {
-                    data.map((el, i) => (
-                        <Article key={i} title={el.title} img={el.img}>{el.title}</Article>
-                     )
-                    )
-                }
-            </Wrapper>
-        );
+      if (!data) return null;
+
+      return (
+        <Wrapper>
+          {
+                data.map((el, i) => (
+                  <Article
+                    key={i}
+                    title={el.title}
+                    img={el.img}
+                    url={el.url}
+                    {...this.props}
+                  >
+                    {el.title}
+                  </Article>
+                ))
+          }
+        </Wrapper>
+      );
     }
 }
 

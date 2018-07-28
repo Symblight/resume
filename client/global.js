@@ -1,4 +1,4 @@
-import { injectGlobal } from 'styled-components'
+import { injectGlobal } from 'styled-components';
 import { font } from 'styled-theme';
 
 export const global = () => injectGlobal`
@@ -9,4 +9,8 @@ export const global = () => injectGlobal`
   body {
     margin:0;
   }
-`
+
+  html, body {
+    height: 100%;
+}
+`;

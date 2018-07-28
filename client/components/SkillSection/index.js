@@ -1,16 +1,30 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import { Section } from 'ui';
+import { Section, TabsNav } from 'ui';
 import GridArticles from '../GridArticles';
 import TabContainer from '../TabContainer';
 import withSkills from '../../props-proxy/withSkills';
-import NavBarSkill from '../NavBarSkills';
+
+const TEST_TABS = [
+  {
+    id: 0,
+    label: 'Technologies'
+  },
+  {
+    id: 1,
+    label: 'Languages'
+  },
+  {
+    id: 2,
+    label: 'Tools'
+  }
+];
 
 class SkillsSection extends PureComponent {
 
   static propTypes = {
-    selected: PropTypes.string,
+    selected: PropTypes.number,
     data: PropTypes.object
   }
 
@@ -34,7 +48,7 @@ class SkillsSection extends PureComponent {
 
     return (
       <Section title="Skills">
-        <NavBarSkill onClick={this.handleOnClick} selected={selected} />
+        <TabsNav onClick={this.handleOnClick} selected={selected} data={TEST_TABS} />
         <TabContainer selected={selected}>
           <GridArticles data={data.technologies} />
           <GridArticles data={data.languages} />

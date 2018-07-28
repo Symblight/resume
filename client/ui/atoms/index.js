@@ -7,3 +7,4 @@ export { Section } from './Section';
 export { Tab } from './Tab';
 export { Icon } from './Icon';
 export { DropdownItem } from './DropdownItem';
+export { TabLink } from './TabLink';

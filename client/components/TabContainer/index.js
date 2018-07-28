@@ -32,7 +32,7 @@ const Wrapper = styled.article`
 class TabConatiner extends PureComponent {
     static propTypes = {
       children: PropTypes.any,
-      selected: PropTypes.number
+  //    selected: PropTypes.number
     }
 
     constructor(props) {
@@ -54,7 +54,7 @@ class TabConatiner extends PureComponent {
       const { selected } = this.state;
 
       return (
-        <Wrapper left={selected === '1'}>
+        <Wrapper>
           { children ? children[selected] : null }
         </Wrapper>
       );

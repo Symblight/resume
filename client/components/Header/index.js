@@ -4,13 +4,19 @@ import styled from 'styled-components';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { Hero, TabsNav } from 'ui';
+import { Hero, TabsNavLink } from 'ui';
 import { changeSelectedPage } from './actions';
 import withHero from '../../props-proxy/withHero';
 
 const Links = [
-  '/',
-  '/contacts'
+  {
+    link: '/',
+    label: 'About'
+  },
+  {
+    link: '/contacts',
+    label: 'Contacts'
+  }
 ];
 
 const Wrapper = styled.section`
@@ -24,13 +30,6 @@ const Wrapper = styled.section`
     @media screen and (min-width: 768px) {
         background-size: cover;
     }
-`;
-
-const ContainerTabs = styled.div`
-    display: flex;
-    position: relative;
-    justify-content: center;
-    margin-top: 1rem;
 `;
 
 const LinkWrap = styled(Link)`
@@ -65,16 +64,12 @@ class Header extends PureComponent {
     }
 
     render() {
-      const { data, tabs } = this.props;
+      const { data, tabs, location } = this.props;
 
       return (
         <Wrapper>
           <Hero>{data}</Hero>
-          <ContainerTabs>
-            {
-              <TabsNav onClick={this.handleSelectedPage} data={tabs} color="white" routers={Links} />
-            }
-          </ContainerTabs>
+          <TabsNavLink data={Links} location={location.pathname} />
         </Wrapper>
       );
     }

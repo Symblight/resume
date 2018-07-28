@@ -10,7 +10,9 @@ import data from '../../data/data.json';
 
 const Wrapper = styled.div`
     max-width: ${size('maxWidth')};
-    margin: 0 auto;
+    @media screen and (min-width: 768px) {
+      margin: 0 auto;
+    }
 `;
 
 class Contacts extends Component {

@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
-
-import { Link } from 'react-router-dom';
+import _ from 'lodash';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -9,24 +8,13 @@ import { palette } from 'styled-theme';
 const Wrapper = styled.li`
     display: inline-block;
     cursor: pointer;
-
-    @media screen and (min-width: 768px) {
-        transition: border-bottom .1s, color .1s;
-        border-bottom-style: solid;
-        border-bottom-color: ${({ active, color }) => (active ? palette(color, 1, true) : '')};
-        border-bottom-width: ${({ active, color }) => (active ? '2.5px' : '0px')};
-        
-        &:hover {
-            border-bottom: 2.5px solid ${({ color }) => palette(color, 1, true)};
-        }
-    }
-
-    @media screen and (max-width: 768px) {
-        background-color: ${({ active }) => (active ? palette('primary', 1, true) : null)};
-
-        &:hover {
-            background-color: ${palette('primary', 1, true)};
-        }
+    transition: border-bottom .1s, color .1s;
+    border-bottom-style: solid;
+    border-bottom-color: ${({ active, color }) => (active ? palette(color, 1, true) : '')};
+    border-bottom-width: ${({ active, color }) => (active ? '2.5px' : '0px')};
+    
+    &:hover {
+        border-bottom: 2.5px solid ${({ color }) => palette(color, 1, true)};
     }
 `;
 
@@ -35,19 +23,10 @@ const Label = styled.span`
     font-size: 18px;
     padding: 1rem;
     font-weight: 700;
+    color: ${({ active, color }) => (active ? palette(color, 1, true) : palette(color, 0, true))};
 
-    @media screen and (min-width: 768px) {
-        color: ${({ active, color }) => (active ? palette(color, 1, true) : palette(color, 0, true))};
-
-        &:hover {
-            color: ${({ color }) => palette(color, 1, true)};
-        }
-    }
-
-    @media screen and (max-width: 768px) {
-        background-color: ${({ active }) => (active ? palette('primary', 2, true) : null)};
-
-        color: ${({ active }) => (active ? palette('dark', 1, true) : palette('white', 3, true))};
+    &:hover {
+        color: ${({ color }) => palette(color, 1, true)};
     }
 `;
 
@@ -57,55 +36,38 @@ export class Tab extends PureComponent {
     color: PropTypes.string,
     active: PropTypes.bool,
     className: PropTypes.string,
-    router: PropTypes.string
+    onClick: PropTypes.func
   }
 
   static defaultProps = {
     color: 'dark'
   }
 
-  renderWithLink() {
+  onClick = (event) => {
+    const { onClick } = this.props;
+
+    event.preventDefault();
+
+    let index = _.toNumber(event.currentTarget.id);
+
+    if (onClick) {
+      onClick(index);
+    }
+  }
+
+  render() {
     const {
-      active, label, color, router
+      className, active, label, color
     } = this.props;
 
     return (
-      <Link to={router}>
+      <Wrapper {...this.props} onClick={this.onClick} className={className} role="tab">
         <Label
           active={active}
           color={color}
         >
           {label}
         </Label>
-      </Link>
-    );
-  }
-
-  renderWithoutLink() {
-    const {
-      active, label, color
-    } = this.props;
-
-    return (
-      <Label
-        active={active}
-        color={color}
-      >
-        {label}
-      </Label>
-    );
-  }
-
-  render() {
-    const {
-      onClick, className, router
-    } = this.props;
-
-    return (
-      <Wrapper onClick={onClick} className={className} {...this.props}>
-        {
-          router ? this.renderWithLink() : this.renderWithoutLink()
-        }
       </Wrapper>
     );
   }

@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import _ from 'lodash';
+import withSizes from 'react-sizes';
 import { palette } from 'styled-theme';
 
-import { Tab } from 'ui';
+import { Tab, Dropdown } from 'ui';
 
 const Wrapper = styled.ul`
     display: flex;
@@ -22,6 +22,11 @@ const Wrapper = styled.ul`
     }
 `;
 
+const mapSizesToProps = ({ width }) => ({
+  isMobile: width < 770
+});
+
+@withSizes(mapSizesToProps)
 export class TabsNav extends PureComponent {
     static propTypes = {
       selected: PropTypes.number,
@@ -30,44 +35,34 @@ export class TabsNav extends PureComponent {
       data: PropTypes.arrayOf(Object)
     }
 
-    constructor(props) {
-      super(props);
-
-      this.state = {
-        selected: props.selected || 0
-      };
-    }
-
-    onClick = (event) => {
+    onClick = (index) => {
       const { onClick } = this.props;
-
-      event.preventDefault();
-      let index = _.toNumber(event.currentTarget.id);
 
       if (onClick) {
         onClick(index);
       }
-
-      this.setState({ selected: index });
     }
 
     render() {
-      const { data, color, routers } = this.props;
-      const { selected } = this.state;
+      const {
+        data, color, isMobile, selected
+      } = this.props;
+
+      if (isMobile) {
+        return <Dropdown data={data} onClick={this.onClick} selected={selected} />;
+      }
 
       return (
         <Wrapper>
           {
               _.map(data, (item, id) => (
                 <Tab
-                  role="tab"
                   key={id}
                   id={id}
                   onClick={this.onClick}
                   active={selected === id}
                   label={item.label}
                   color={color}
-                  router={routers ? routers[id] : null}
                 />
               ))
           }

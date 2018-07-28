@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 
 import data from '../data/data.json';
 
-
 const withHero = (Component) => {
   class Hero extends PureComponent {
     render() {

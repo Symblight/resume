@@ -8,6 +8,11 @@ const Wrapper = styled.img`
     height: 150px;
     padding: 4px;
     background-color: white;
+
+    @media screen and (max-width: 768px) {
+      width: 180px;
+      height: 180px;
+  }
 `;
 
 export const Avatar = ({ url }, props) => <Wrapper alt="Avatar" src={url} {...props} />;

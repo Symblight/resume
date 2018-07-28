@@ -34,6 +34,7 @@ const Content = styled.main`
     flex-grow: 1;
     margin: auto;
     width: 100%;
+    padding-top: 12px;
 `;
 
 const Footer = styled.footer`

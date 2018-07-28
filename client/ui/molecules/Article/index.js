@@ -18,23 +18,15 @@ const Wrap = styled.a`
     border-color: ${palette('white', 1, true)};
     color: ${palette('primary', 1, true)};
 
+    width: 150px;
+    height: 150px;
+    margin: 12px;
+    flex-direction: column;  
+
     &:hover{
         background-color: ${palette('grayscale', 1, true)};
     }
- 
-    @media screen and (min-width: 768px) {
-        width: 150px;
-        height: 150px;
-        margin: 12px
-        flex-direction: column;  
-    }
 
-    @media screen and (max-width: 768px) {
-        flex-direction: row;  
-        width: 100%;
-        height: 80px;
-        border-bottom: 1px solid #eee;
-    }
 `;
 
 const IconWrap = styled.figure`
@@ -43,7 +35,9 @@ const IconWrap = styled.figure`
     }
 
     @media screen and (max-width: 768px) {
-        margin-right: 12px;
+        height: 100%;
+        align-items: center;
+        display: flex;
     }
 `;
 
@@ -54,15 +48,15 @@ const SvgFigure = styled(Icon)`
     }
 
     @media screen and (max-width: 768px) {
-        width: 35px;
-        height: 35px;
+        width: 55px;
+        height: 55px;
     }
 `;
 
 export const Article = ({
   children, img, url
 }, props) => (
-  <Block href={url || '#'}>
+  <Block href={url || '/#'}>
     <Wrap>
       <IconWrap>
         {

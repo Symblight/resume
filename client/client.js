@@ -22,6 +22,7 @@ const App = require('./components/App').default;
 
 const render = (Component) => {
   const renderMethod = module.hot ? ReactDOM.hydrate : ReactDOM.render;
+  const main = document.getElementById('root');
 
   renderMethod(
     <Router>
@@ -33,7 +34,7 @@ const render = (Component) => {
         </ThemeProvider>
       </AppContainer>
     </Router>,
-    document.getElementById('root')
+    main
   );
 };
 

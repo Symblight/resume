@@ -96,5 +96,8 @@
         }
     ],
     "email":"symblight@gmail.com",
-    "about":"Hey! My name is Alexey and I'm web developer. My stack: React, NodeJS" 
+    "about":{
+        "name": "Alexey Tkachenko",
+        "summary": "Hey! My name is Alexey and I'm web developer. My stack: React, NodeJS"
+    }
 }

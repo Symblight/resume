@@ -10,11 +10,11 @@ const Wrapper = styled.article`
     flex-wrap: wrap;
 
     @media screen and (min-width: 768px) {
-        flex-direction: row;
+       
     }
 
     @media screen and (max-width: 768px) {
-        flex-direction: column;
+      
     }
 `;
 

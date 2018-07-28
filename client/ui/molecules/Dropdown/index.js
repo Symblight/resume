@@ -8,6 +8,7 @@ import { DropdownItem, Icon } from 'ui';
 
 const Wrapper = styled.div`
   background-color: ${palette('white', 3, true)};
+  border: 1px solid #eee;
 `;
 
 const Header = styled.div`
@@ -16,7 +17,6 @@ const Header = styled.div`
   cursor: pointer;
   font-size: 18px;
   font-weight: 700;
-  margin-bottom: 4px;
 `;
 
 const Title = styled.span`

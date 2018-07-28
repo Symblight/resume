@@ -7,9 +7,7 @@ import { Avatar } from 'ui';
 
 const Wrapper = styled.div`
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
+    max-width: 420px;
 
     @media screen and (min-width: 768px) {
         flex-direction: row;
@@ -17,42 +15,57 @@ const Wrapper = styled.div`
 
     @media screen and (max-width: 768px) {
         flex-direction: column;
+        align-items: center;
     }
 `;
 
 const Description = styled.div`
     display: flex;
+    flex-direction: column;
     font-weight: 700;
-    margin: 12px;
     word-wrap: break-word;
     width: 240px;
-    align-items: center;
     color: #fff;
     font-style: normal;
     line-height: 1.28;
     letter-spacing: -.003em;
 
+    h2 {
+        margin-top: auto;
+    }
+
     @media screen and (min-width: 768px) {
         font-size: 21px;
+        margin-left: 18px;
     }
 
     @media screen and (max-width: 768px) {
         font-size: 16px;
+        padding: 4px;
+        justify-content: center;
+        align-items: center;
     }
 `;
 
+const Summary = styled.div`
+    margin-top: auto;
+    margin-bottom: auto;
+`;
+
 export const Hero = ({
-  children, className
+  children, className, title
 }) => (
   <Wrapper className={className}>
     <Avatar url={Ava} />
     <Description>
-      {children}
+      <h2>{title}</h2>
+      <Summary>{children}</Summary>
     </Description>
   </Wrapper>
 );
 
 Hero.propTypes = {
   children: PropTypes.any,
-  className: PropTypes.string
+  className: PropTypes.string,
+  title: PropTypes.string
 };

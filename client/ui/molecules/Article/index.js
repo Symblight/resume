@@ -25,6 +25,7 @@ const Wrap = styled.a`
 
     &:hover{
         background-color: ${palette('grayscale', 1, true)};
+        color: ${palette('primary', 1, true)};
     }
 
 `;
@@ -56,8 +57,8 @@ const SvgFigure = styled(Icon)`
 export const Article = ({
   children, img, url
 }, props) => (
-  <Block href={url || '/#'}>
-    <Wrap>
+  <Block>
+    <Wrap href={url || '/#'}>
       <IconWrap>
         {
          img ? <SvgFigure icon={img} /> : null

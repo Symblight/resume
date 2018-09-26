@@ -4,7 +4,7 @@ const nodeExternals = require('webpack-node-externals');
 const rules = require('./webpack/rules.js');
 const plugins = require('./webpack/plugins.js');
 
-const isProduction = process.env.NODE_ENV.trim() === 'production';
+const isProduction = process.env.NODE_ENV === 'production';
 const srcClient = "client/client.js";
 const srcServer = "client/server.js";
 
@@ -24,7 +24,7 @@ const productionConfig = {
 
 module.exports = [{
   name: 'client',
-  mode: process.env.NODE_ENV.trim(),
+  mode: process.env.NODE_ENV,
   devtool: isProduction ? false : 'source-map',
   entry: isProduction ? productionConfig : developmentConfig,
   output: {
@@ -46,7 +46,7 @@ module.exports = [{
 },
 {
   name: 'server',
-  mode: process.env.NODE_ENV.trim(),
+  mode: process.env.NODE_ENV,
   target: 'node',
   entry: [
     path.join(__dirname, srcServer),

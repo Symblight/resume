@@ -1,9 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import { palette } from 'styled-theme';
+import React from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
+import { palette } from 'styled-theme'
 
-import { Block, Icon } from 'ui';
+import { Block, Icon } from 'ui'
+
 
 const Wrap = styled.a`
     display: flex;  
@@ -28,7 +29,7 @@ const Wrap = styled.a`
         color: ${palette('primary', 1, true)};
     }
 
-`;
+`
 
 const IconWrap = styled.figure`
     @media screen and (min-width: 768px) {
@@ -40,7 +41,7 @@ const IconWrap = styled.figure`
         align-items: center;
         display: flex;
     }
-`;
+`
 
 const SvgFigure = styled(Icon)`
     @media screen and (min-width: 768px) {
@@ -52,10 +53,10 @@ const SvgFigure = styled(Icon)`
         width: 55px;
         height: 55px;
     }
-`;
+`
 
 export const Article = ({
-  children, img, url
+  children, img, url,
 }, props) => (
   <Block>
     <Wrap href={url || '/#'}>
@@ -67,10 +68,10 @@ export const Article = ({
       {children}
     </Wrap>
   </Block>
-);
+)
 
 Article.propTypes = {
   img: PropTypes.string,
   children: PropTypes.any,
-  url: PropTypes.string
-};
+  url: PropTypes.string,
+}

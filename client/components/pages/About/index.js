@@ -1,16 +1,16 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent } from 'react'
 import {
-  withRouter
-} from 'react-router-dom';
+  withRouter,
+} from 'react-router-dom'
 
-import { PageTemplate, Footer } from 'ui';
-import Header from '../../Header';
-import Routers from '../../../routers';
+import { PageTemplate, Footer } from 'ui'
+import Header from '../../Header'
+import Routers from '../../../routers'
 
 
 class MainPage extends PureComponent {
   render() {
-    const { children } = this.props;
+    const { children } = this.props
 
     return (
       <PageTemplate
@@ -19,8 +19,8 @@ class MainPage extends PureComponent {
       >
         <Routers />
       </PageTemplate>
-    );
+    )
   }
 }
 
-export default withRouter(MainPage);
+export default withRouter(MainPage)

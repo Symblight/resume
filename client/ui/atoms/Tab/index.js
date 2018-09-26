@@ -1,9 +1,10 @@
-import React, { PureComponent } from 'react';
-import _ from 'lodash';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import React, { PureComponent } from 'react'
+import _ from 'lodash'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
-import { palette } from 'styled-theme';
+import { palette } from 'styled-theme'
+
 
 const Wrapper = styled.li`
     display: inline-block;
@@ -16,7 +17,7 @@ const Wrapper = styled.li`
     &:hover {
         border-bottom: 2.5px solid ${({ color }) => palette(color, 1, true)};
     }
-`;
+`
 
 const Label = styled.span`
     display: block;
@@ -28,7 +29,7 @@ const Label = styled.span`
     &:hover {
         color: ${({ color }) => palette(color, 1, true)};
     }
-`;
+`
 
 export class Tab extends PureComponent {
   static propTypes = {
@@ -36,29 +37,29 @@ export class Tab extends PureComponent {
     color: PropTypes.string,
     active: PropTypes.bool,
     className: PropTypes.string,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
   }
 
   static defaultProps = {
-    color: 'dark'
+    color: 'dark',
   }
 
   onClick = (event) => {
-    const { onClick } = this.props;
+    const { onClick } = this.props
 
-    event.preventDefault();
+    event.preventDefault()
 
-    let index = _.toNumber(event.currentTarget.id);
+    const index = _.toNumber(event.currentTarget.id)
 
     if (onClick) {
-      onClick(index);
+      onClick(index)
     }
   }
 
   render() {
     const {
-      className, active, label, color
-    } = this.props;
+      className, active, label, color,
+    } = this.props
 
     return (
       <Wrapper {...this.props} onClick={this.onClick} className={className} role="tab">
@@ -69,6 +70,6 @@ export class Tab extends PureComponent {
           {label}
         </Label>
       </Wrapper>
-    );
+    )
   }
 }

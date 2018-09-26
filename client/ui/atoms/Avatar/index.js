@@ -1,6 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+
 
 const Wrapper = styled.img`
     border-radius: 5px;
@@ -13,10 +14,10 @@ const Wrapper = styled.img`
       width: 180px;
       height: 180px;
   }
-`;
+`
 
-export const Avatar = ({ url }, props) => <Wrapper alt="Avatar" src={url} {...props} />;
+export const Avatar = ({ url }, props) => <Wrapper alt="Avatar" src={url} {...props} />
 
 Avatar.propTypes = {
-  url: PropTypes.string
-};
+  url: PropTypes.string,
+}

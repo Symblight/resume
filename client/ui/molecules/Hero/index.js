@@ -1,9 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import React from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
-import Ava from 'assets/ava.jpg';
-import { Avatar } from 'ui';
+import Ava from 'assets/ava.jpg'
+import { Avatar } from 'ui'
+
 
 const Wrapper = styled.div`
     display: flex;
@@ -17,7 +18,7 @@ const Wrapper = styled.div`
         flex-direction: column;
         align-items: center;
     }
-`;
+`
 
 const Description = styled.div`
     display: flex;
@@ -45,15 +46,15 @@ const Description = styled.div`
         justify-content: center;
         align-items: center;
     }
-`;
+`
 
 const Summary = styled.div`
     margin-top: auto;
     margin-bottom: auto;
-`;
+`
 
 export const Hero = ({
-  children, className, title
+  children, className, title,
 }) => (
   <Wrapper className={className}>
     <Avatar url={Ava} />
@@ -62,10 +63,10 @@ export const Hero = ({
       <Summary>{children}</Summary>
     </Description>
   </Wrapper>
-);
+)
 
 Hero.propTypes = {
   children: PropTypes.any,
   className: PropTypes.string,
-  title: PropTypes.string
-};
+  title: PropTypes.string,
+}

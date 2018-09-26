@@ -1,8 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
-import { TabLink } from 'ui';
+import { TabLink } from 'ui'
+
 
 const ContainerTabs = styled.div`
     display: flex;
@@ -16,7 +17,7 @@ const ContainerTabs = styled.div`
     @media screen and (max-width: 768px) {
         flex-direction: column;
     }
-`;
+`
 
 export const TabsNavLink = ({ data, location }) => (
   <ContainerTabs>
@@ -32,9 +33,9 @@ export const TabsNavLink = ({ data, location }) => (
     ))
     }
   </ContainerTabs>
-);
+)
 
 TabsNavLink.propTypes = {
   data: PropTypes.arrayOf(Object),
-  location: PropTypes.string
-};
+  location: PropTypes.string,
+}

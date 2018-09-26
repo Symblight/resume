@@ -1,5 +1,6 @@
-import { injectGlobal } from 'styled-components';
-import { font } from 'styled-theme';
+import { injectGlobal } from 'styled-components'
+import { font } from 'styled-theme'
+
 
 export const global = () => injectGlobal`
   html {
@@ -13,4 +14,4 @@ export const global = () => injectGlobal`
   html, body {
     height: 100%;
 }
-`;
+`

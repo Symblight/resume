@@ -1,8 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import { size, palette } from 'styled-theme';
+import React from 'react'
+import styled from 'styled-components'
+import { size, palette } from 'styled-theme'
 
-import { Icon } from 'ui';
+import { Icon } from 'ui'
+
 
 const Wrapper = styled.div`
     margin: 0 auto;
@@ -11,7 +12,7 @@ const Wrapper = styled.div`
     padding-top: 30px;
     padding-bottom: 30px;
     font-weight: 700;
-`;
+`
 
 const UlWrap = styled.ul`
     display: flex;
@@ -35,7 +36,7 @@ const UlWrap = styled.ul`
     li {
         padding: 2px;
     }
-`;
+`
 
 const LinkFooter = styled.a`
     text-decoration: none;
@@ -45,7 +46,7 @@ const LinkFooter = styled.a`
     &:hover {
         border-bottom: 1px solid  ${palette('primary', 1, true)};
     }
-`;
+`
 
 export const Footer = (props) => (
   <Wrapper>
@@ -59,4 +60,4 @@ export const Footer = (props) => (
       <li>version 1.0.0</li>
     </UlWrap>
   </Wrapper>
-);
+)

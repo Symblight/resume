@@ -1,8 +1,9 @@
-import React, { PureComponent } from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
-import { Article } from 'ui';
+import { Article } from 'ui'
+
 
 const Wrapper = styled.article`
     display: flex;
@@ -16,17 +17,17 @@ const Wrapper = styled.article`
     @media screen and (max-width: 768px) {
       
     }
-`;
+`
 
 class GridArticles extends PureComponent {
     static propTypes = {
-      data: PropTypes.arrayOf(String)
+      data: PropTypes.arrayOf(String),
     }
 
     render() {
-      const { data } = this.props;
+      const { data } = this.props
 
-      if (!data) return null;
+      if (!data) return null
 
       return (
         <Wrapper>
@@ -44,8 +45,8 @@ class GridArticles extends PureComponent {
                 ))
           }
         </Wrapper>
-      );
+      )
     }
 }
 
-export default GridArticles;
+export default GridArticles

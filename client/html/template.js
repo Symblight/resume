@@ -19,4 +19,4 @@ export default ({ markup, styles, reduxState }) => `<!doctype html>
     </script>
     <script src="app.bundle.js"></script>
 </body>
-</html>`;
+</html>`

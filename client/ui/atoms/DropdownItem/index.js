@@ -1,7 +1,8 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { palette } from 'styled-theme';
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { palette } from 'styled-theme'
+
 
 const Wrapper = styled.div`
     padding: 1rem;
@@ -15,31 +16,31 @@ const Wrapper = styled.div`
     &:hover {
       background-color: ${palette('white', 1, true)};
     }
-`;
+`
 
 export class DropdownItem extends PureComponent {
     static propTypes = {
       onClick: PropTypes.func,
       index: PropTypes.number,
       className: PropTypes.string,
-      children: PropTypes.any
+      children: PropTypes.any,
     }
 
     onClick = (event) => {
-      const { index, onClick } = this.props;
+      const { index, onClick } = this.props
 
       if (onClick) {
-        onClick(index);
+        onClick(index)
       }
     }
 
     render() {
-      const { children, className } = this.props;
+      const { children, className } = this.props
 
       return (
         <Wrapper onClick={this.onClick} className={className}>
           {children}
         </Wrapper>
-      );
+      )
     }
 }

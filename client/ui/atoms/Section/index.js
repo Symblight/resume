@@ -1,6 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import React from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
+
 
 const Wrapper = styled.section`
     border-bottom: solid 1px #e4e4eb;
@@ -11,20 +12,20 @@ const Wrapper = styled.section`
     @media screen and (max-width: 768px) {
 
     }
-`;
+`
 
 const Title = styled.span`
     font-size: 24px;
     font-weight: 700;
-`;
+`
 
 const WrapTitle = styled.div`
     padding-bottom: 12px;
     text-align: center;
-`;
+`
 
 export const Section = ({
-  children, title
+  children, title,
 }) => (
   <Wrapper>
     {title ? (
@@ -38,9 +39,9 @@ export const Section = ({
       {children}
     </div>
   </Wrapper>
-);
+)
 
 Section.propTypes = {
   children: PropTypes.any,
-  title: PropTypes.string
-};
+  title: PropTypes.string,
+}

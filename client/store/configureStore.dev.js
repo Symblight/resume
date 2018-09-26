@@ -1,6 +1,6 @@
-import { createStore, compose, applyMiddleware } from 'redux';
-import { createLogger } from 'redux-logger';
-import rootReducer from '../reducers';
+import { createStore, compose, applyMiddleware } from 'redux'
+import { createLogger } from 'redux-logger'
+import rootReducer from '../reducers'
 
 /**
  * Configure the store for the DEV mode
@@ -8,26 +8,27 @@ import rootReducer from '../reducers';
  * @return {Object}              The app store
  */
 export default function configureStore(initialState) {
-  const middleWare = [];
+  const middleWare = []
   // middleWare.push(thunk);
 
   const loggerMiddleware = createLogger({
     predicate: () => process.env.NODE_ENV === 'development',
-    collapsed: true
-  });
-  
-  middleWare.push(loggerMiddleware);
+    collapsed: true,
+  })
+
+  middleWare.push(loggerMiddleware)
   const store = createStore(
     rootReducer, initialState,
-    compose(applyMiddleware(...middleWare))
-  );
+    compose(applyMiddleware(...middleWare)),
+  )
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
     module.hot.accept('../reducers', () => {
-      const nextReducer = require('../reducers').default; // eslint-disable-line global-require
-      store.replaceReducer(nextReducer);
-    });
+      const nextReducer = require('../reducers').default // eslint-disable-line global-require
+
+      store.replaceReducer(nextReducer)
+    })
   }
-  return store;
+  return store
 }

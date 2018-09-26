@@ -1,10 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import React from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
+
 
 const Wrapper = styled.div`
     cursor: pointer;
-`;
+`
 
 export const Block = ({
   children, ...props
@@ -12,8 +13,8 @@ export const Block = ({
   <Wrapper {...props}>
     {children}
   </Wrapper>
-);
+)
 
 Block.propTypes = {
-  children: PropTypes.any
-};
+  children: PropTypes.any,
+}

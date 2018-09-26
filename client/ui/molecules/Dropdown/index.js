@@ -1,15 +1,16 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import _ from 'lodash';
-import { palette } from 'styled-theme';
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import _ from 'lodash'
+import { palette } from 'styled-theme'
 
-import { DropdownItem, Icon } from 'ui';
+import { DropdownItem, Icon } from 'ui'
+
 
 const Wrapper = styled.div`
   background-color: ${palette('white', 3, true)};
   border: 1px solid #eee;
-`;
+`
 
 const Header = styled.div`
   display: flex;
@@ -17,55 +18,55 @@ const Header = styled.div`
   cursor: pointer;
   font-size: 18px;
   font-weight: 700;
-`;
+`
 
 const Title = styled.span`
   width: 100%;
-`;
+`
 
 export class Dropdown extends PureComponent {
   static propTypes = {
     data: PropTypes.arrayOf(Object),
     selected: PropTypes.number,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
   }
 
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       selected: props.selected || 0,
       show: false,
-      items: props.data || []
-    };
+      items: props.data || [],
+    }
   }
 
   handleClick = () => {
-    const { show } = this.state;
+    const { show } = this.state
 
     this.setState({
-      show: !show
-    });
+      show: !show,
+    })
   }
 
   handleClickItem = (index) => {
-    const { show } = this.state;
-    const { onClick } = this.props;
+    const { show } = this.state
+    const { onClick } = this.props
 
-    let id = _.toNumber(index);
+    const id = _.toNumber(index)
 
     this.setState({
       selected: id,
-      show: !show
-    });
+      show: !show,
+    })
 
     if (onClick) {
-      onClick(id);
+      onClick(id)
     }
   }
 
   renderList() {
-    const { items, selected } = this.state;
+    const { items, selected } = this.state
 
     return (
       items.map((el, i) => (el.id !== selected
@@ -79,22 +80,22 @@ export class Dropdown extends PureComponent {
           </DropdownItem>
         ) : null
       ))
-    );
+    )
   }
 
   renderHeader() {
-    const { show, selected, items } = this.state;
+    const { show, selected, items } = this.state
 
     return (
       <Header onClick={this.handleClick}>
         <Title>{items[selected].label}</Title>
         <Icon icon={!show ? 'arrowBottom' : 'arrowTop'} />
       </Header>
-    );
+    )
   }
 
   render() {
-    const { show } = this.state;
+    const { show } = this.state
 
     return (
       <Wrapper>
@@ -103,6 +104,6 @@ export class Dropdown extends PureComponent {
           {show ? this.renderList() : null}
         </div>
       </Wrapper>
-    );
+    )
   }
 }

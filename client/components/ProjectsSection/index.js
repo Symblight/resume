@@ -1,6 +1,7 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent } from 'react'
 
-import { Section } from 'ui';
+import { Section } from 'ui'
+
 
 class ProjectsSection extends PureComponent {
   render() {
@@ -8,8 +9,8 @@ class ProjectsSection extends PureComponent {
       <Section title="Projects">
         Projects
       </Section>
-    );
+    )
   }
 }
 
-export default ProjectsSection;
+export default ProjectsSection

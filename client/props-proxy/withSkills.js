@@ -1,28 +1,28 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent } from 'react'
 
-import data from '../data/data.json';
+import data from '../data/data.json'
+
 
 const withSkills = (Component) => {
   class Skills extends PureComponent {
-
     componentWillMount() {
       this.setState({
-        skills: data.skills
-      });
+        skills: data.skills,
+      })
     }
 
     render() {
-      const { skills } = this.state;
+      const { skills } = this.state
 
-      if (!skills) return <h3>Loading</h3>;
+      if (!skills) return <h3>Loading</h3>
 
       return (
         <Component data={skills} {...this.props} />
-      );
+      )
     }
   }
 
-  return Skills;
-};
+  return Skills
+}
 
-export default withSkills;
+export default withSkills

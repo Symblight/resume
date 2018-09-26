@@ -1,8 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { palette } from 'styled-theme';
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+import { palette } from 'styled-theme'
+
 
 const Wrapper = styled(Link)`
     display: inline-block;
@@ -23,7 +24,7 @@ const Wrapper = styled(Link)`
             background-color: ${palette('primary', 1, true)};
         }
     }
-`;
+`
 
 const Label = styled.span`
     display: block;
@@ -40,19 +41,20 @@ const Label = styled.span`
         background-color: ${({ active }) => (active === 'true' ? palette('primary', 2, true) : null)};
         color: ${({ active }) => (active === 'true' ? palette('dark', 1, true) : palette('white', 3, true))};
     }
-`;
+`
 
 export const TabLink = ({ to, active, children }) => (
   <Wrapper to={to} active={active} color="white">
     <Label
       active={active}
       color="white"
-    >{children}</Label>
+    >{children}
+    </Label>
   </Wrapper>
-);
+)
 
 TabLink.propTypes = {
   active: PropTypes.string,
   children: PropTypes.any,
-  to: PropTypes.string
-};
+  to: PropTypes.string,
+}

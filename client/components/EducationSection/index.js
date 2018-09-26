@@ -1,17 +1,17 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 
-import { Section, ArticleInfo } from 'ui';
-import withEducation from '../../props-proxy/withEducation';
+import { Section, ArticleInfo } from 'ui'
+import withEducation from '../../props-proxy/withEducation'
 
 
 class EducationSection extends PureComponent {
     static propTypes = {
-      data: PropTypes.arrayOf(Object)
+      data: PropTypes.arrayOf(Object),
     }
 
     render() {
-      const { data } = this.props;
+      const { data } = this.props
 
       return (
         <Section title="Education">
@@ -26,8 +26,8 @@ class EducationSection extends PureComponent {
             ))
           }
         </Section>
-      );
+      )
     }
 }
 
-export default withEducation(EducationSection);
+export default withEducation(EducationSection)

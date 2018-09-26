@@ -1,14 +1,15 @@
-import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import React from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
-import { palette } from 'styled-theme';
+import { palette } from 'styled-theme'
+
 
 const Wrapper = styled.article`
     display: flex;
     flex-direction: row;
     background-color: ${palette('white', 1, true)};
-`;
+`
 
 const Title = styled.div`
     background-color: ${palette('primary', 1, true)};
@@ -17,15 +18,15 @@ const Title = styled.div`
     font-size: 18px;
     font-weight: 700;
     line-height: 1.58;
-`;
+`
 
 const Content = styled.div`
     padding: 1rem;
     width: 100%;
-`;
+`
 
 export const BlockWay = ({
-  title, children, className
+  title, children, className,
 }, props) => (
   <Wrapper className={className}>
     <Title>
@@ -35,10 +36,10 @@ export const BlockWay = ({
       {children}
     </Content>
   </Wrapper>
-);
+)
 
 BlockWay.propTypes = {
   children: PropTypes.any,
   className: PropTypes.string,
-  title: PropTypes.string
-};
+  title: PropTypes.string,
+}

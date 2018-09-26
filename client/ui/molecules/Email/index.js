@@ -1,8 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
-import { palette } from 'styled-theme';
+import { palette } from 'styled-theme'
+
 
 const Wrapper = styled.div`
     display: flex;
@@ -15,16 +16,16 @@ const Wrapper = styled.div`
     &:hover {
         background-color: ${palette('white', 4, true)};
     }
-`;
+`
 
 const Content = styled.div`
     color: ${palette('primary', 1, true)};
     font-weight: 700;
-`;
+`
 
 const Header = styled.span`
     width: 100%;
-`;
+`
 
 export const Email = ({ data }) => (
   <Wrapper>
@@ -33,8 +34,8 @@ export const Email = ({ data }) => (
       {data}
     </Content>
   </Wrapper>
-);
+)
 
 Email.propTypes = {
-  data: PropTypes.string
-};
+  data: PropTypes.string,
+}

@@ -1,50 +1,50 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 
-import { Section, TabsNav } from 'ui';
-import GridArticles from '../GridArticles';
-import TabContainer from '../TabContainer';
-import withSkills from '../../props-proxy/withSkills';
+import { Section, TabsNav } from 'ui'
+import GridArticles from '../GridArticles'
+import TabContainer from '../TabContainer'
+import withSkills from '../../props-proxy/withSkills'
+
 
 const TEST_TABS = [
   {
     id: 0,
-    label: 'Technologies'
+    label: 'Technologies',
   },
   {
     id: 1,
-    label: 'Languages'
+    label: 'Languages',
   },
   {
     id: 2,
-    label: 'Tools'
-  }
-];
+    label: 'Tools',
+  },
+]
 
 class SkillsSection extends PureComponent {
-
   static propTypes = {
     selected: PropTypes.number,
-    data: PropTypes.object
+    data: PropTypes.object,
   }
 
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
-      selected: props.selected || 0
-    };
+      selected: props.selected || 0,
+    }
   }
 
   handleOnClick = (index) => {
     this.setState({
-      selected: index
-    });
+      selected: index,
+    })
   }
 
   render() {
-    const { data } = this.props;
-    const { selected } = this.state;
+    const { data } = this.props
+    const { selected } = this.state
 
     return (
       <Section title="Skills">
@@ -55,8 +55,8 @@ class SkillsSection extends PureComponent {
           <GridArticles data={data.tools} />
         </TabContainer>
       </Section>
-    );
+    )
   }
 }
 
-export default withSkills(SkillsSection);
+export default withSkills(SkillsSection)

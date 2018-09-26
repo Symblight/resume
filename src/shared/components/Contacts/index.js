@@ -6,7 +6,7 @@ import { size } from 'styled-theme'
 import { Section, Email } from 'ui'
 import GridArticles from '../GridArticles'
 
-import data from '../../data/data.json'
+import data from '../../../data/data.json'
 
 
 const Wrapper = styled.div`

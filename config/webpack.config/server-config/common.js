@@ -9,7 +9,10 @@ const paths = require('../../paths');
 
 const server = {
     name: 'server',
-    entry: path.resolve(__dirname, '../../../', 'src/server'),
+    target: 'node',
+    entry:{ 
+        server: path.resolve(__dirname, '../../../', 'src/server/index.js')
+    },
     externals: [nodeExternals()],
     output: {
         path: paths.serverBuild,
@@ -27,6 +30,4 @@ const server = {
     },
 }
 
-module.exports = {
-    server
-}
+module.exports = server

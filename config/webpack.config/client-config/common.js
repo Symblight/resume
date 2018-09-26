@@ -9,7 +9,9 @@ const paths = require('../../paths');
 const client = {
     name: 'client',
     target: 'web',
-    entry: path.resolve(__dirname, '../../../', 'src/client/'),
+    entry: {
+        bundle:path.resolve(__dirname, '../../../', 'src/client/')
+    },
     output: {
         path: path.join(paths.clientBuild, paths.publicPath),
         filename: 'bundle.js',
@@ -50,6 +52,5 @@ const client = {
 }
 
 
-module.exports = {
-    client
-}
+module.exports = client
+    

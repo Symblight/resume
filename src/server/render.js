@@ -5,11 +5,11 @@ import { ServerStyleSheet, ThemeProvider } from 'styled-components'
 import { AppContainer } from 'react-hot-loader'
 import { Provider } from 'react-redux'
 
-import theme from './ui/themes/default'
-import Template from './html/template'
-import App from './components/App'
+import theme from '../ui/themes/default'
+import Template from '../html/template'
+import App from '../components/App'
 
-import configureStore from './store/configureStore'
+import configureStore from '../store/configureStore'
 
 
 const store = configureStore()
